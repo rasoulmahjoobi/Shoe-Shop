@@ -59,12 +59,12 @@ const onboardingSlides = [
 //دکمه next
 nextBtn.addEventListener("click", () => {
   currentSlide++;
-
+  //رفتن به صفحه های بعدی - از 3 به 4 و از 4 به 5
   if (currentSlide < onboardingSlides.length) {
     updateSlide();
   } else {
-    // پایان onboarding
-    alert("Go to app home page 🚀");
+    // رفتن به صفحه login
+    window.location.href = "../2-login/login-page-index.html";
   }
 });
 
