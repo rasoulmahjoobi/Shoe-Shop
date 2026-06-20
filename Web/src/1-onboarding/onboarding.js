@@ -40,17 +40,17 @@ let currentSlide = 0;
 //آرایه تغییرات صفحه 3 تا 5
 const onboardingSlides = [
   {
-    image: "image-onboarding/onboarding-page3.jpg",
+    image: "../../assets/images/image-onboarding/onboarding-page3.jpg",
     title: "We provide high quality products just for you",
     buttonText: "Next",
   },
   {
-    image: "image-onboarding/onboarding-page4.jpg",
+    image: "../../assets/images/image-onboarding/onboarding-page4.jpg",
     title: "Your satisfaction is our number one priority",
     buttonText: "Next",
   },
   {
-    image: "image-onboarding/onboarding-page5.jpg",
+    image: "../../assets/images/image-onboarding/onboarding-page5.jpg",
     title: "Let's fulfill your fashion needs with Shoea right now!",
     buttonText: "Get started",
   },
@@ -64,7 +64,7 @@ nextBtn.addEventListener("click", () => {
     updateSlide();
   } else {
     // رفتن به صفحه login
-    window.location.href = "../2-login/login-page-index.html";
+    window.location.href = "../2-login/login.html";
   }
 });
 
