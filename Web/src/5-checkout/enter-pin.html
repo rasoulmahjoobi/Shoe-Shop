@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Enter Your PIN</title>
+
+    <script src="tailwind.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-white font-['Inter'] text-[#222222]">
+    <main class="mx-auto min-h-screen w-full max-w-md px-7 pt-12 pb-10">
+      <!-- Header -->
+      <header class="flex items-center gap-5">
+        <a
+          href="payment-method.html"
+          class="flex h-10 w-10 items-center justify-center"
+          aria-label="Back"
+        >
+          <span class="text-4xl font-light">←</span>
+        </a>
+
+        <h1 class="text-[28px] font-extrabold">Enter Your PIN</h1>
+      </header>
+
+      <!-- PIN dots -->
+      <section class="mt-28">
+        <p class="text-center text-[18px] text-[#666666]">
+          Enter your payment PIN
+        </p>
+
+        <div id="pinDots" class="mt-10 flex justify-center gap-5">
+          <span class="pin-dot h-5 w-5 rounded-full bg-[#E5E5E5]"></span>
+          <span class="pin-dot h-5 w-5 rounded-full bg-[#E5E5E5]"></span>
+          <span class="pin-dot h-5 w-5 rounded-full bg-[#E5E5E5]"></span>
+          <span class="pin-dot h-5 w-5 rounded-full bg-[#E5E5E5]"></span>
+        </div>
+      </section>
+
+      <!-- Number Keyboard -->
+      <section class="mx-auto mt-28 grid max-w-[330px] grid-cols-3 gap-y-10 text-center">
+        <button class="pin-key text-[32px] font-semibold" data-number="1">1</button>
+        <button class="pin-key text-[32px] font-semibold" data-number="2">2</button>
+        <button class="pin-key text-[32px] font-semibold" data-number="3">3</button>
+
+        <button class="pin-key text-[32px] font-semibold" data-number="4">4</button>
+        <button class="pin-key text-[32px] font-semibold" data-number="5">5</button>
+        <button class="pin-key text-[32px] font-semibold" data-number="6">6</button>
+
+        <button class="pin-key text-[32px] font-semibold" data-number="7">7</button>
+        <button class="pin-key text-[32px] font-semibold" data-number="8">8</button>
+        <button class="pin-key text-[32px] font-semibold" data-number="9">9</button>
+
+        <button class="text-[30px] font-bold">*</button>
+        <button class="pin-key text-[32px] font-semibold" data-number="0">0</button>
+
+        <button
+          id="deletePin"
+          class="flex items-center justify-center text-[28px]"
+          aria-label="Delete"
+        >
+          ⌫
+        </button>
+      </section>
+    </main>
+
+    <!-- Success Modal -->
+    <div
+      id="successModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-[#252B36]/75 px-7"
+    >
+      <div
+        class="w-full max-w-md rounded-[52px] bg-white px-8 pb-10 pt-14 text-center shadow-2xl"
+      >
+        <!-- Cart Icon -->
+        <div class="relative mx-auto flex h-[180px] w-[180px] items-center justify-center rounded-full bg-[#161616]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-20 w-20 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45A2 2 0 007 17h12v-2H7.42a.25.25 0 01-.22-.37L8.1 13h7.45a2 2 0 001.75-1.03L20.88 5.5A1 1 0 0020 4H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2z"
+            />
+          </svg>
+        </div>
+
+        <h2 class="mt-12 text-[30px] font-extrabold">
+          Order Successful!
+        </h2>
+
+        <p class="mt-6 text-[18px] text-[#444444]">
+          You have successfully made order
+        </p>
+
+        <a
+          href="orders.html"
+          class="mt-12 flex h-[72px] w-full items-center justify-center rounded-full bg-[#111111] text-[22px] font-extrabold text-white"
+        >
+          View Order
+        </a>
+
+        <button
+          id="viewReceiptButton"
+          class="mt-5 h-[72px] w-full rounded-full bg-[#E9E9E9] text-[22px] font-extrabold text-[#444444]"
+        >
+          View E-Receipt
+        </button>
+      </div>
+    </div>
+
+    <script src="enter-pin.js"></script>
+  </body>
+</html>

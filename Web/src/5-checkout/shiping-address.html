@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shipping Address</title>
+
+    <script src="tailwind.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-white font-['Inter'] text-[#222222]">
+    <main class="mx-auto min-h-screen w-full max-w-md px-7 pb-40 pt-12">
+      <!-- Header -->
+      <header class="mb-12 flex items-center gap-5">
+        <a
+          href="checkout.html"
+          class="flex h-10 w-10 items-center justify-center"
+          aria-label="Back"
+        >
+          <span class="text-3xl">←</span>
+        </a>
+
+        <h1 class="text-[28px] font-extrabold">Shipping Address</h1>
+      </header>
+
+      <!-- آدرس‌ها با JavaScript اینجا ساخته می‌شوند -->
+      <section id="addressList" class="space-y-7"></section>
+
+      <!-- Add Address -->
+      <button
+        id="addAddressButton"
+        class="mt-7 h-24 w-full rounded-full bg-[#EEEEEE] text-[22px] font-extrabold text-[#444444]"
+      >
+        Add New Address
+      </button>
+    </main>
+
+    <!-- Apply -->
+    <footer
+      class="fixed bottom-0 left-0 right-0 bg-white px-7 py-7 shadow-[0_-8px_25px_rgba(0,0,0,0.05)]"
+    >
+      <div class="mx-auto max-w-md">
+        <button
+          id="applyButton"
+          class="h-[72px] w-full rounded-full bg-[#111111] text-[22px] font-extrabold text-white shadow-[0_12px_20px_rgba(0,0,0,0.22)]"
+        >
+          Apply
+        </button>
+      </div>
+    </footer>
+
+    <script src="shiping-address.js"></script>
+  </body>
+</html>

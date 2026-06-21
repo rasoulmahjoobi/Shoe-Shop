@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Methods</title>
+
+    <script src="tailwind.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bg-white font-['Inter'] text-[#222222]">
+    <main class="mx-auto min-h-screen w-full max-w-md px-7 pt-12 pb-40">
+      <!-- Header -->
+      <header class="flex items-center justify-between">
+        <div class="flex items-center gap-5">
+          <a
+            href="checkout.html"
+            class="flex h-10 w-10 items-center justify-center"
+            aria-label="Back"
+          >
+            <span class="text-4xl font-light">←</span>
+          </a>
+
+          <h1 class="text-[28px] font-extrabold">Payment Methods</h1>
+        </div>
+
+        <button
+          class="flex h-12 w-12 items-center justify-center rounded-2xl border-[3px] border-[#222222] text-4xl font-light"
+          aria-label="Add payment method"
+        >
+          +
+        </button>
+      </header>
+
+      <p class="mt-16 text-[20px] font-medium leading-8 text-[#4D4D4D]">
+        Select the payment method you want to use.
+      </p>
+
+      <!-- Payment Methods -->
+      <section class="mt-12 space-y-7">
+        <!-- Wallet -->
+        <button
+          class="payment-card flex w-full items-center gap-5 rounded-[34px] bg-white px-6 py-9 text-left shadow-[0_10px_35px_rgba(0,0,0,0.05)]"
+          data-name="My Wallet"
+          data-balance="9379"
+        >
+          <div
+            class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-[#111111]"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-white"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 7.5A2.5 2.5 0 015.5 5h11A2.5 2.5 0 0119 7.5V8h1a2 2 0 012 2v5a2 2 0 01-2 2h-1v.5a2.5 2.5 0 01-2.5 2.5h-11A2.5 2.5 0 013 17.5v-10z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16 12h3"
+              />
+            </svg>
+          </div>
+
+          <p class="min-w-0 flex-1 text-[22px] font-extrabold">My Wallet</p>
+
+          <p class="text-[21px] font-extrabold">$9,379</p>
+
+          <span
+            class="radio flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-[4px] border-[#111111]"
+          >
+            <span class="h-5 w-5 rounded-full bg-[#111111]"></span>
+          </span>
+        </button>
+
+        <!-- PayPal -->
+        <button
+          class="payment-card flex w-full items-center gap-5 rounded-[34px] bg-white px-6 py-9 text-left shadow-[0_10px_35px_rgba(0,0,0,0.05)]"
+          data-name="PayPal"
+        >
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center">
+            <span class="text-[42px] font-extrabold italic text-[#003087]">P</span>
+          </div>
+
+          <p class="flex-1 text-[22px] font-extrabold">PayPal</p>
+
+          <span
+            class="radio flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-[4px] border-[#111111]"
+          ></span>
+        </button>
+
+        <!-- Google Pay -->
+        <button
+          class="payment-card flex w-full items-center gap-5 rounded-[34px] bg-white px-6 py-9 text-left shadow-[0_10px_35px_rgba(0,0,0,0.05)]"
+          data-name="Google Pay"
+        >
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center">
+            <span class="text-[42px] font-extrabold text-[#4285F4]">G</span>
+          </div>
+
+          <p class="flex-1 text-[22px] font-extrabold">Google Pay</p>
+
+          <span
+            class="radio flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-[4px] border-[#111111]"
+          ></span>
+        </button>
+
+        <!-- Apple Pay -->
+        <button
+          class="payment-card flex w-full items-center gap-5 rounded-[34px] bg-white px-6 py-9 text-left shadow-[0_10px_35px_rgba(0,0,0,0.05)]"
+          data-name="Apple Pay"
+        >
+          <div class="flex h-14 w-14 shrink-0 items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-12 w-12"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.7 13.3c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.9-3-.9-1.5 0-3 .9-3.8 2.3-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.3 2.9 2.2 1.1 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.6-1-2.6-3.8zM14.4 6.5c.7-.9 1.2-2.1 1-3.3-1 .1-2.2.7-2.9 1.6-.7.8-1.2 2-1 3.2 1.1.1 2.2-.6 2.9-1.5z"
+              />
+            </svg>
+          </div>
+
+          <p class="flex-1 text-[22px] font-extrabold">Apple Pay</p>
+
+          <span
+            class="radio flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-[4px] border-[#111111]"
+          ></span>
+        </button>
+
+        <!-- Mastercard -->
+        <button
+          class="payment-card flex w-full items-center gap-5 rounded-[34px] bg-white px-6 py-9 text-left shadow-[0_10px_35px_rgba(0,0,0,0.05)]"
+          data-name="Mastercard"
+          data-card="4679"
+        >
+          <div class="relative h-14 w-16 shrink-0">
+            <span
+              class="absolute left-0 top-2 h-10 w-10 rounded-full bg-[#EB001B]"
+            ></span>
+            <span
+              class="absolute left-6 top-2 h-10 w-10 rounded-full bg-[#F79E1B] opacity-90"
+            ></span>
+            <span
+              class="absolute bottom-0 left-0 text-[9px] font-bold text-[#222222]"
+            >
+              mastercard
+            </span>
+          </div>
+
+          <p class="flex-1 text-[20px] font-extrabold">
+            •••• •••• •••• 4679
+          </p>
+
+          <span
+            class="radio flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-[4px] border-[#111111]"
+          ></span>
+        </button>
+      </section>
+    </main>
+
+    <!-- Bottom Button -->
+    <footer
+      class="fixed bottom-0 left-0 right-0 z-10 bg-white/95 px-7 py-7 shadow-[0_-8px_25px_rgba(0,0,0,0.05)] backdrop-blur"
+    >
+      <div class="mx-auto max-w-md">
+        <button
+          id="confirmPaymentButton"
+          class="h-[72px] w-full rounded-full bg-[#111111] text-[22px] font-extrabold text-white shadow-[0_12px_20px_rgba(0,0,0,0.22)]"
+        >
+          Confirm Payment
+        </button>
+      </div>
+    </footer>
+<script src="payment-methods.js"></script>
+
+  </body>
+</html>
