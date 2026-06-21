@@ -1,4 +1,3 @@
-
 const removeModal = document.getElementById("removeModal");
 const cancelRemoveBtn = document.getElementById("cancelRemoveBtn");
 const confirmRemoveBtn = document.getElementById("confirmRemoveBtn");
@@ -11,20 +10,21 @@ const modalProductQuantity = document.getElementById("modalProductQuantity");
 
 let selectedCartItem = null;
 
-document.querySelectorAll("[data-remove-btn]").forEach((button) => {
-  button.addEventListener("click", () => {
-    selectedCartItem = button.closest(".cart-item");
+function openRemoveModal(cartItem) {
+  const removeButton = cartItem.querySelector("[data-remove-btn]");
+  const quantityElement = cartItem.querySelector(".quantity-value");
 
-    modalProductImage.src = button.dataset.image;
-    modalProductName.textContent = button.dataset.name;
-    modalProductInfo.textContent = button.dataset.info;
-    modalProductPrice.textContent = button.dataset.price;
-    modalProductQuantity.textContent = `- ${button.dataset.quantity} +`;
+  selectedCartItem = cartItem;
 
-    removeModal.classList.remove("hidden");
-    removeModal.classList.add("flex");
-  });
-});
+  modalProductImage.src = removeButton.dataset.image;
+  modalProductName.textContent = removeButton.dataset.name;
+  modalProductInfo.textContent = removeButton.dataset.info;
+  modalProductPrice.textContent = removeButton.dataset.price;
+  modalProductQuantity.textContent = `- ${quantityElement.textContent} +`;
+
+  removeModal.classList.remove("hidden");
+  removeModal.classList.add("flex");
+}
 
 function closeRemoveModal() {
   removeModal.classList.add("hidden");
@@ -32,6 +32,40 @@ function closeRemoveModal() {
   selectedCartItem = null;
 }
 
+/* دکمه سطل زباله */
+document.querySelectorAll("[data-remove-btn]").forEach((button) => {
+  button.addEventListener("click", () => {
+    openRemoveModal(button.closest(".cart-item"));
+  });
+});
+
+/* دکمه منفی */
+document.querySelectorAll(".quantity-minus").forEach((button) => {
+  button.addEventListener("click", () => {
+    const cartItem = button.closest(".cart-item");
+    const quantityElement = cartItem.querySelector(".quantity-value");
+    const quantity = Number(quantityElement.textContent);
+
+    if (quantity === 1) {
+      openRemoveModal(cartItem);
+      return;
+    }
+
+    quantityElement.textContent = quantity - 1;
+  });
+});
+
+/* دکمه مثبت */
+document.querySelectorAll(".quantity-plus").forEach((button) => {
+  button.addEventListener("click", () => {
+    const cartItem = button.closest(".cart-item");
+    const quantityElement = cartItem.querySelector(".quantity-value");
+
+    quantityElement.textContent = Number(quantityElement.textContent) + 1;
+  });
+});
+
+/* دکمه‌های مدال */
 cancelRemoveBtn.addEventListener("click", closeRemoveModal);
 
 confirmRemoveBtn.addEventListener("click", () => {
@@ -42,6 +76,7 @@ confirmRemoveBtn.addEventListener("click", () => {
   closeRemoveModal();
 });
 
+/* بستن مدال با کلیک بیرون آن */
 removeModal.addEventListener("click", (event) => {
   if (event.target === removeModal) {
     closeRemoveModal();
