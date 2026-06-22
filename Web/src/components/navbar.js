@@ -1,38 +1,86 @@
-//باید به فایل هایی که نیاز دارند وصل شود
+// باید به فایل‌هایی که نیاز دارند وصل شود
 
 export const navbar = () => {
   const currentPath = window.location.pathname;
 
-  const isHome =
-    currentPath.includes("index.html") || currentPath.endsWith("/");
-  const isCart = currentPath.includes("cart.html");
-  const isOrders = currentPath.includes("orders.html");
+  const isHome = currentPath.includes("home.html");
+  const isCart = currentPath.includes("cart-product.html");
+  const isOrders = currentPath.includes("order.html");
 
-  return `    <nav class="fixed bottom-0 left-0 w-full z-50 bg-white">
+  window.goToHome = () => {
+    window.location.href = "../../3-home/home/home.html";
+  };
+
+  window.goToCart = () => {
+    window.location.href = "../../4-cart/cart-product.html";
+  };
+
+  window.goToOrders = () => {
+    window.location.href = "../../6-order/order.html";
+  };
+
+  return `
+    <nav class="fixed bottom-0 left-0 w-full z-50 bg-white border-t border-gray-100">
       <div class="flex justify-evenly items-center h-16">
+
+        <!-- Home -->
         <div class="flex flex-col items-center">
-          <a href="../3-home/home/home.html">
+          <button
+            onclick="goToHome()"
+            class="${
+              isHome
+                ? "bg-black rounded-xl px-3 py-1"
+                : "group rounded-xl px-3 py-1 transition-all duration-200 hover:bg-black"
+            } flex flex-col items-center"
+          >
             <svg
-            class="${isHome ? "text-black" : "text-gray-800 hover:text-black"} "
+              class="${
+                isHome
+                  ? "text-white"
+                  : "text-gray-800 group-hover:text-white"
+              }"
+              xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="21"
-              viewBox="0 0 20 21"
+              viewBox="0 0 24 24"
               fill="none"
-              xmlns="http://www.w3.org/2000/svg"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <path
-                d="M7.5 20.2513V14.9938C7.5 14.6263 7.875 14.2513 8.25 14.2513H11.25C11.625 14.2513 12 14.6263 12 15.0013V20.2513C12 20.4503 12.079 20.641 12.2197 20.7817C12.3603 20.9223 12.5511 21.0013 12.75 21.0013H18.75C18.9489 21.0013 19.1397 20.9223 19.2803 20.7817C19.421 20.641 19.5 20.4503 19.5 20.2513V9.75134C19.5002 9.65278 19.4809 9.55516 19.4433 9.46404C19.4058 9.37293 19.3506 9.29012 19.281 9.22034L17.25 7.19084V2.25134C17.25 2.05243 17.171 1.86166 17.0303 1.72101C16.8897 1.58036 16.6989 1.50134 16.5 1.50134H15C14.8011 1.50134 14.6103 1.58036 14.4697 1.72101C14.329 1.86166 14.25 2.05243 14.25 2.25134V4.19084L10.281 0.220341C10.2113 0.150496 10.1286 0.0950815 10.0375 0.0572719C9.94633 0.0194622 9.84865 0 9.75 0C9.65135 0 9.55367 0.0194622 9.46255 0.0572719C9.37143 0.0950815 9.28867 0.150496 9.219 0.220341L0.219001 9.22034C0.149399 9.29012 0.0942313 9.37293 0.0566537 9.46404C0.0190762 9.55516 -0.000174824 9.65278 1.19624e-06 9.75134V20.2513C1.19624e-06 20.4503 0.0790188 20.641 0.219671 20.7817C0.360323 20.9223 0.551089 21.0013 0.750001 21.0013H6.75C6.94891 21.0013 7.13968 20.9223 7.28033 20.7817C7.42098 20.641 7.5 20.4503 7.5 20.2513Z"
-                fill="currentColor"
-              />
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+              <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             </svg>
-          </a>
-          <span class="text-sm font-semibold">Home</span>
+
+            <span
+              class="${
+                isHome
+                  ? "text-white"
+                  : "text-gray-700 group-hover:text-white"
+              } text-sm font-semibold"
+            >
+              Home
+            </span>
+          </button>
         </div>
 
+        <!-- Cart -->
         <div class="flex flex-col items-center">
-          <a  href="../4-cart/cart-product.html">
+          <button
+            onclick="goToCart()"
+            class="${
+              isCart
+                ? "bg-black rounded-xl px-3 py-1"
+                : "group rounded-xl px-3 py-1 transition-all duration-200 hover:bg-black"
+            } flex flex-col items-center"
+          >
             <svg
-            class="${isCart ? "text-black" : "text-gray-800 hover:text-black"} "
+              class="${
+                isCart
+                  ? "text-white"
+                  : "text-gray-800 group-hover:text-white"
+              }"
               width="20"
               height="21"
               viewBox="0 0 21 24"
@@ -44,14 +92,35 @@ export const navbar = () => {
                 fill="currentColor"
               />
             </svg>
-          </a>
-          <span  class="text-sm font-semibold">Cart</span>
+
+            <span
+              class="${
+                isCart
+                  ? "text-white"
+                  : "text-gray-700 group-hover:text-white"
+              } text-sm font-semibold"
+            >
+              Cart
+            </span>
+          </button>
         </div>
 
+        <!-- Orders -->
         <div class="flex flex-col items-center">
-          <a href="../6-orders/order.html">
+          <button
+            onclick="goToOrders()"
+            class="${
+              isOrders
+                ? "bg-black rounded-xl px-3 py-1"
+                : "group rounded-xl px-3 py-1 transition-all duration-200 hover:bg-black"
+            } flex flex-col items-center"
+          >
             <svg
-            class="${isOrders ? "text-black" : "text-gray-800 hover:text-black"} "
+              class="${
+                isOrders
+                  ? "text-white"
+                  : "text-gray-800 group-hover:text-white"
+              }"
               width="23"
               height="21"
               viewBox="0 0 23 21"
@@ -63,14 +132,26 @@ export const navbar = () => {
                 fill="currentColor"
               />
             </svg>
-          </a>
-          <span class="text-sm font-semibold">Orders</span>
+
+            <span
+              class="${
+                isOrders
+                  ? "text-white"
+                  : "text-gray-700 group-hover:text-white"
+              } text-sm font-semibold"
+            >
+              Orders
+            </span>
+          </button>
         </div>
 
+        <!-- Wallet -->
         <div class="flex flex-col items-center">
-          <button>
+          <button
+            class="group flex flex-col items-center rounded-xl px-3 py-1 transition-all duration-200 hover:bg-black"
+          >
             <svg
-            class="hover:text-black text-gray-700"
+              class="text-gray-700 group-hover:text-white"
               width="24"
               height="23"
               viewBox="0 0 24 23"
@@ -78,18 +159,23 @@ export const navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M18.204 0.0672533C18.5356 -0.0156915 18.8817 -0.0219995 19.2161 0.0488083C19.5505 0.119616 19.8644 0.265678 20.1339 0.475907C20.4034 0.686135 20.6214 0.955003 20.7715 1.2621C20.9216 1.5692 20.9997 1.90645 21 2.24825V4.07825H21.75C22.3467 4.07825 22.919 4.31531 23.341 4.73726C23.7629 5.15922 24 5.73152 24 6.32825V19.8283C24 20.425 23.7629 20.9973 23.341 21.4192C22.919 21.8412 22.3467 22.0783 21.75 22.0783H2.25C1.65326 22.0783 1.08097 21.8412 0.65901 21.4192C0.237053 20.9973 1.47137e-07 20.425 1.47137e-07 19.8283V6.32825C-0.000209191 5.74903 0.222964 5.19205 0.623066 4.77322C1.02317 4.3544 1.56938 4.10601 2.148 4.07975L18.204 0.0672533ZM8.343 4.07825H19.5V2.24825C19.4997 2.13446 19.4736 2.02221 19.4235 1.92002C19.3735 1.81782 19.3008 1.72836 19.2111 1.65841C19.1213 1.58845 19.0168 1.53984 18.9055 1.51625C18.7941 1.49266 18.6789 1.49471 18.5685 1.52225L8.343 4.07825ZM2.25 5.57825C2.05109 5.57825 1.86032 5.65727 1.71967 5.79792C1.57902 5.93858 1.5 6.12934 1.5 6.32825V19.8283C1.5 20.0272 1.57902 20.2179 1.71967 20.3586C1.86032 20.4992 2.05109 20.5783 2.25 20.5783H21.75C21.9489 20.5783 22.1397 20.4992 22.2803 20.3586C22.421 20.2179 22.5 20.0272 22.5 19.8283V6.32825C22.5 6.12934 22.421 5.93858 22.2803 5.79792C22.1397 5.65727 21.9489 5.57825 21.75 5.57825H2.25Z"
+                d="M18.204 0.0672533C18.5356 -0.0156915 18.8817 -0.0219995 19.2161 0.0488083C19.5505 0.119616 19.8644 0.265678 20.1339 0.475907C20.4034 0.686135 20.6214 0.955003 20.7715 1.2621C20.9216 1.5692 20.9997 1.90645 21 2.24825V4.07825H21.75C22.3467 4.07825 22.919 4.31531 23.341 4.73726C23.7629 5.15922 24 5.73152 24 6.32825V19.8283C24 20.425 23.7629 20.9973 23.341 21.4192C22.919 21.8412 22.3467 22.0783 21.75 22.0783H2.25C1.65326 22.0783 1.08097 21.8412 0.65901 21.4192C0.237053 20.9973 1.47137e-07 20.425 1.47137e-07 19.8283V6.32825C-0.000209191 5.74903 0.222964 5.19205 0.623066 4.77322C1.02317 4.3544 1.56938 4.10601 2.148 4.07975L18.204 0.0672533Z"
                 fill="currentColor"
               />
             </svg>
+            <span class="text-sm font-semibold text-gray-700 group-hover:text-white">
+              Wallet
+            </span>
           </button>
-          <span class="text-sm font-semibold">Wallet</span>
         </div>
 
+        <!-- Profile -->
         <div class="flex flex-col items-center">
-          <button>
+          <button
+            class="group flex flex-col items-center rounded-xl px-3 py-1 transition-all duration-200 hover:bg-black"
+          >
             <svg
-            class="hover:text-black text-gray-700"
+              class="text-gray-700 group-hover:text-white"
               width="18"
               height="18"
               viewBox="0 0 18 18"
@@ -97,15 +183,17 @@ export const navbar = () => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M9 9C10.1935 9 11.3381 8.52589 12.182 7.68198C13.0259 6.83807 13.5 5.69347 13.5 4.5C13.5 3.30653 13.0259 2.16193 12.182 1.31802C11.3381 0.474106 10.1935 0 9 0C7.80653 0 6.66193 0.474106 5.81802 1.31802C4.97411 2.16193 4.5 3.30653 4.5 4.5C4.5 5.69347 4.97411 6.83807 5.81802 7.68198C6.66193 8.52589 7.80653 9 9 9ZM12 4.5C12 5.29565 11.6839 6.05871 11.1213 6.62132C10.5587 7.18393 9.79565 7.5 9 7.5C8.20435 7.5 7.44129 7.18393 6.87868 6.62132C6.31607 6.05871 6 5.29565 6 4.5C6 3.70435 6.31607 2.94129 6.87868 2.37868C7.44129 1.81607 8.20435 1.5 9 1.5C9.79565 1.5 10.5587 1.81607 11.1213 2.37868C11.6839 2.94129 12 3.70435 12 4.5ZM18 16.5C18 18 16.5 18 16.5 18H1.5C1.5 18 0 18 0 16.5C0 15 1.5 10.5 9 10.5C16.5 10.5 18 15 18 16.5ZM16.5 16.494C16.4985 16.125 16.269 15.015 15.252 13.998C14.274 13.02 12.4335 12 9 12C5.565 12 3.726 13.02 2.748 13.998C1.731 15.015 1.503 16.125 1.5 16.494H16.5Z"
+                d="M9 9C10.1935 9 11.3381 8.52589 12.182 7.68198C13.0259 6.83807 13.5 5.69347 13.5 4.5C13.5 3.30653 13.0259 2.16193 12.182 1.31802C11.3381 0.474106 10.1935 0 9 0C7.80653 0 6.66193 0.474106 5.81802 1.31802C4.97411 2.16193 4.5 3.30653 4.5 4.5C4.5 5.69347 4.97411 6.83807 5.81802 7.68198C6.66193 8.52589 7.80653 9 9 9ZM18 16.5C18 18 16.5 18 16.5 18H1.5C1.5 18 0 18 0 16.5C0 15 1.5 10.5 9 10.5C16.5 10.5 18 15 18 16.5Z"
                 fill="currentColor"
               />
             </svg>
+            <span class="text-sm font-semibold text-gray-700 group-hover:text-white">
+              Profile
+            </span>
           </button>
-          <span class="text-sm font-semibold">Profile</span>
         </div>
+
       </div>
     </nav>
-
-`;
+  `;
 };
