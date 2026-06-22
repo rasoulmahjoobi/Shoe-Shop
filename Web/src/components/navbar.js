@@ -84,7 +84,7 @@ export const navbar = () => {
               width="20"
               height="21"
               viewBox="0 0 21 24"
-              fill="none"
+              fill="currentColor"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
