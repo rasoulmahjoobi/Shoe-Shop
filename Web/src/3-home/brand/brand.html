@@ -21,71 +21,30 @@
       <a href="../home/home.html">
         <span class="text-3xl">←</span>
       </a>
-      <span class="font-semibold">Nike</span>
+      <span id="brand-name" class="font-semibold"></span>
     </div>
 
     <!-- list product -->
-    <div class="grid grid-cols-2 gap-4 my-2 mx-8 pb-20">
-      <!-- product1 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
-      <!-- product2 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
-      <!-- product3 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
-      <!-- product4 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
+    <!-- توسط js اضافه میشود -->
+    <div
+      id="brandBase-product-list"
+      class="grid grid-cols-2 gap-4 my-2 mx-8 pb-20"
+    ></div>
+
+    <!-- دکمه pagination -->
+    <div class="flex justify-center">
+      <button
+        id="load-more-btn"
+        class="text-center text-sm bg-gray-700 text-white mb-10 w-36 h-8 rounded-md hover:bg-black"
+      >
+        Load More ...
+      </button>
     </div>
+
+    <!-- nav-bar -->
+    <!-- توسط js اضافه میشود -->
+    <div id="navbar"></div>
+
+    <script type="module" src="brand.js"></script>
   </body>
 </html>

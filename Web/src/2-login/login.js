@@ -39,6 +39,22 @@ function checkInputs() {
 emailInput.addEventListener("input", checkInputs);
 passwordInput.addEventListener("input", checkInputs);
 
+//تابع اعتبارسنجی ایمیل
+function EmailValidation(email) {
+  email = email.trim();
+
+  if (!email.includes("@")) return false;
+  if (!email.includes(".")) return false;
+
+  const parts = email.split("@");
+
+  if (parts.length !== 2) return false;
+  if (parts[0] === "") return false;
+  if (parts[1] === "") return false;
+
+  return true;
+}
+
 // فعال شدن دکمه لاگین
 loginBtn.addEventListener("click", () => {
   const email = emailInput.value.trim();
@@ -46,6 +62,12 @@ loginBtn.addEventListener("click", () => {
 
   if (!email || !password) {
     alert("Please fill all fields");
+    return;
+  }
+
+  //اعتبارسنجی ایمیل
+  if (!EmailValidation(email)) {
+    alert("Email is invalid");
     return;
   }
 

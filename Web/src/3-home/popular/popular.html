@@ -27,41 +27,49 @@
     <div class="mx-6 mt-4 overflow-x-auto clear-both">
       <div class="flex gap-3 w-max pb-2">
         <button
-          class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
+          data-brand="all"
+          class="px-4 py-2 rounded-full bg-black text-white border-2 border-black font-semibold"
         >
           All
         </button>
         <button
+          data-brand="Nike"
           class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
         >
           Nike
         </button>
         <button
+          data-brand="Adidas"
           class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
         >
           Adidas
         </button>
         <button
+          data-brand="Puma"
           class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
         >
           Puma
         </button>
         <button
+          data-brand="Asics"
           class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
         >
           Asics
         </button>
         <button
+          data-brand="Reebok"
           class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
         >
           Reebok
         </button>
         <button
+          data-brand="New Balance"
           class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
         >
           New Balance
         </button>
         <button
+          data-brand="Converse"
           class="px-4 py-2 rounded-full hover:text-slate-50 hover:bg-black bg-white border-2 border-black font-semibold"
         >
           Converse
@@ -70,67 +78,25 @@
     </div>
 
     <!-- list product -->
-    <div class="grid grid-cols-2 gap-4 my-2 mx-8 pb-20">
-      <!-- product1 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
-      <!-- product2 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
-      <!-- product3 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
-      <!-- product4 -->
-      <div class="flex flex-col items-center py-3 w-full">
-        <div
-          class="bg-gray-100 flex items-center justify-center w-44 h-44 rounded-2xl"
-        >
-          <img
-            class="w-32 h-auto"
-            src="../../../assets/images/image-home/image-shoe-1.png"
-          />
-        </div>
-        <div class="w-44 text-left flex flex-col gap-1 mt-3">
-          <h1 class="text-xl font-bold">K Swiss Train...</h1>
-          <p>$ 85.00</p>
-        </div>
-      </div>
+    <div
+      id="popular-product-list"
+      class="grid grid-cols-2 gap-4 my-2 mx-8 pb-20"
+    ></div>
+
+    <!-- برای pagination -->
+    <div class="flex justify-center pb-10">
+      <button
+        id="load-more-btn"
+        class="text-center text-sm bg-gray-700 text-white mb-28 w-36 h-8 rounded-md hover:bg-black"
+      >
+        Load More
+      </button>
     </div>
+
+    <!-- nav-bar -->
+    <!-- توسط js اضافه میشود -->
+    <div id="navbar"></div>
+
+    <script type="module" src="popular.js"></script>
   </body>
 </html>

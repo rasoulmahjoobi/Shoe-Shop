@@ -1,16 +1,17 @@
-//باید به فایل هایی که نیاز دارند وصل شود - بعد از مرج شدن انجام شود
+//باید به فایل هایی که نیاز دارند وصل شود
 
 export const navbar = () => {
   const currentPath = window.location.pathname;
 
-  const isHome = currentPath.includes("index.html");
+  const isHome =
+    currentPath.includes("index.html") || currentPath.endsWith("/");
   const isCart = currentPath.includes("cart.html");
   const isOrders = currentPath.includes("orders.html");
 
-  return `    <nav class="bg-white fixed bottom-0 w-full">
+  return `    <nav class="fixed bottom-0 left-0 w-full z-50 bg-white">
       <div class="flex justify-evenly items-center h-16">
         <div class="flex flex-col items-center">
-          <button>
+          <a href="../3-home/home/home.html">
             <svg
             class="${isHome ? "text-black" : "text-gray-800 hover:text-black"} "
               width="20"
@@ -24,12 +25,12 @@ export const navbar = () => {
                 fill="currentColor"
               />
             </svg>
-          </button>
+          </a>
           <span class="text-sm font-semibold">Home</span>
         </div>
 
         <div class="flex flex-col items-center">
-          <button>
+          <a  href="../4-cart/cart-product.html">
             <svg
             class="${isCart ? "text-black" : "text-gray-800 hover:text-black"} "
               width="20"
@@ -43,12 +44,12 @@ export const navbar = () => {
                 fill="currentColor"
               />
             </svg>
-          </button>
+          </a>
           <span  class="text-sm font-semibold">Cart</span>
         </div>
 
         <div class="flex flex-col items-center">
-          <button>
+          <a href="../6-orders/order.html">
             <svg
             class="${isOrders ? "text-black" : "text-gray-800 hover:text-black"} "
               width="23"
@@ -62,7 +63,7 @@ export const navbar = () => {
                 fill="currentColor"
               />
             </svg>
-          </button>
+          </a>
           <span class="text-sm font-semibold">Orders</span>
         </div>
 
