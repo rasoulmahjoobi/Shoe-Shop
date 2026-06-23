@@ -1,4 +1,4 @@
-//ساخت navbar
+// ساخت navbar
 import { navbar } from "../components/navbar.js";
 document.getElementById("navbar").innerHTML = navbar();
 
@@ -7,59 +7,7 @@ const completedTab = document.getElementById("completedTab");
 const tabIndicator = document.getElementById("tabIndicator");
 const ordersContainer = document.getElementById("ordersContainer");
 
-/*
-  بعداً این آرایه باید از API دریافت شود.
-
-  status: false  => Active
-  status: true   => Completed
-*/
-const orders = [
-  {
-    id: 1,
-    title: "Air Jordan 3 Retro",
-    color: "Black",
-    colorCode: "#3D3D3D",
-    size: 42,
-    qty: 1,
-    price: 105,
-    image: "image-shoe-3.png",
-    status: true,
-  },
-  {
-    id: 2,
-    title: "Running Sportwear",
-    color: "Silver",
-    colorCode: "#E4E4E4",
-    size: 41,
-    qty: 2,
-    price: 240,
-    image: "image-shoe-2.png",
-    status: false,
-  },
-  {
-    id: 3,
-    title: "New Balance 996 V2",
-    color: "Brown",
-    colorCode: "#6E6E6E",
-    size: 42,
-    qty: 1,
-    price: 125,
-    image: "image-shoe-1.png",
-    status: true,
-  },
-  {
-    id: 4,
-    title: "Fila Running Sneakers",
-    color: "Silver",
-    colorCode: "#E4E4E4",
-    size: 42,
-    qty: 1,
-    price: 95,
-    image: "image-shoe-4.png",
-    status: false,
-  },
-];
-
+let orders = JSON.parse(localStorage.getItem("checkoutOrder")) || [];
 let currentTab = "active";
 
 function createOrderCard(order) {
@@ -122,10 +70,7 @@ function createOrderCard(order) {
 
 function renderOrders() {
   const filteredOrders = orders.filter((order) => {
-    if (currentTab === "active") {
-      return order.status === false;
-    }
-
+    if (currentTab === "active") return order.status === false;
     return order.status === true;
   });
 
@@ -133,62 +78,16 @@ function renderOrders() {
     const isActiveTab = currentTab === "active";
 
     ordersContainer.innerHTML = `
-    <div class="flex flex-col items-center px-3 pt-24 text-center">
-      
-      <!-- تصویر خالی بودن سفارش‌ها -->
-      <div class="relative mb-12 h-[260px] w-full max-w-[290px]">
-        
-        <!-- کارت عقب -->
-        <div
-          class="absolute left-[35px] top-[20px] h-[190px] w-[150px] rotate-[-15deg] rounded-[12px] border border-[#3D3D46] bg-white"
-        >
-          <div
-            class="absolute left-1/2 top-[-22px] h-[40px] w-[138px] -translate-x-1/2 rounded-[6px] bg-[#111111]"
-          ></div>
-
-          <div
-            class="absolute left-[22px] top-[28px] h-[145px] w-[108px] rounded-[5px] bg-[#F1F1F1]"
-          ></div>
-
-          <div
-            class="absolute left-1/2 top-[-38px] h-[25px] w-[25px] -translate-x-1/2 rounded-full border-[4px] border-[#111111] bg-white"
-          ></div>
-        </div>
-
-        <!-- کارت جلو -->
-        <div
-          class="absolute right-[18px] top-[58px] h-[205px] w-[190px] rounded-[12px] border border-[#3D3D46] bg-white"
-        >
-          <div
-            class="absolute left-1/2 top-[-20px] h-[42px] w-[138px] -translate-x-1/2 rounded-[6px] bg-[#111111]"
-          ></div>
-
-          <div
-            class="absolute left-[24px] top-[25px] h-[150px] w-[142px] rounded-[5px] bg-[#E9E9E9]"
-          ></div>
-
-          <div
-            class="absolute left-1/2 top-[-38px] h-[25px] w-[25px] -translate-x-1/2 rounded-full border-[4px] border-[#111111] bg-white"
-          ></div>
-        </div>
+      <div class="flex flex-col items-center px-3 pt-24 text-center">
+        <h2 class="text-[22px] font-bold">No Orders</h2>
+        <p class="mt-3 text-[#666]">
+          ${isActiveTab ? "No active orders" : "No completed orders"}
+        </p>
       </div>
-
-      <h2 class="text-[27px] font-extrabold tracking-[-0.8px] text-[#222222]">
-        You don't have an order yet
-      </h2>
-
-      <p class="mt-5 max-w-[320px] text-[18px] leading-relaxed text-[#555555]">
-        ${
-          isActiveTab
-            ? "You don't have an active orders at this time"
-            : "You don't have any completed orders at this time"
-        }
-      </p>
-    </div>
-  `;
-
+    `;
     return;
   }
+
   ordersContainer.innerHTML = filteredOrders
     .map((order) => createOrderCard(order))
     .join("");
@@ -204,6 +103,7 @@ function setActiveTab() {
     "w-1/2 pb-4 text-center text-[20px] font-medium text-[#A7A7A7]";
 
   tabIndicator.style.left = "0";
+
   renderOrders();
 }
 
@@ -217,6 +117,7 @@ function setCompletedTab() {
     "w-1/2 pb-4 text-center text-[20px] font-medium text-[#A7A7A7]";
 
   tabIndicator.style.left = "50%";
+
   renderOrders();
 }
 

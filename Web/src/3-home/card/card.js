@@ -233,7 +233,7 @@ favoriteBtn.addEventListener("click", () => {
 });
 
 // ====== مدیریت Cart ======
-addToCartBtn.addEventListener("click", () => {
+addToCartBtn.addEventListener("click", async () => {
   if (!selectedSize) {
     alert("Please select a size");
     return;
@@ -249,30 +249,44 @@ addToCartBtn.addEventListener("click", () => {
     return;
   }
 
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const res = await fetch("http://localhost:3000/cart");
+  const cart = await res.json();
 
   const existingProduct = cart.find(
     (item) =>
-      item.id === currentProduct.id &&
+      item.productId === currentProduct.id &&
       item.size === selectedSize &&
-      item.color === selectedColor
+      item.color === selectedColor,
   );
 
   if (existingProduct) {
-    existingProduct.quantity += quantity;
+    await fetch(`http://localhost:3000/cart/${existingProduct.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        quantity: existingProduct.quantity + quantity,
+      }),
+    });
   } else {
-    cart.push({
-      id: currentProduct.id,
-      title: currentProduct.title,
-      image: currentProduct.image,
-      price: currentProduct.price,
-      size: selectedSize,
-      color: selectedColor,
-      quantity: quantity,
+    await fetch("http://localhost:3000/cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        productId: currentProduct.id,
+        name: currentProduct.title,
+        image: currentProduct.image,
+        price: currentProduct.price,
+        color: selectedColor,
+        size: selectedSize,
+        info: `${selectedColor} | Size = ${selectedSize}`,
+        quantity,
+      }),
     });
   }
-
-  localStorage.setItem("cart", JSON.stringify(cart));
 
   alert("Added To Cart 🛒");
 });
