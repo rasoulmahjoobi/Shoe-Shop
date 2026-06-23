@@ -73,36 +73,42 @@
       class="h-[calc(100vh-300px)] overflow-y-auto pb-8"
     ></main>
 
+    <!-- اگر کارت خالی باشد -->
+    <div
+      id="empty-cart"
+      class="hidden flex-col items-center justify-center mt-24 px-6"
+    >
+      <h2 class="text-2xl font-bold">Your cart is empty 🛒</h2>
+
+      <p class="text-gray-500 mt-3 text-center">
+        Looks like you haven't added anything yet.
+      </p>
+
+      <a
+        href="/Web/src/3-home/home/home.html"
+        class="mt-6 bg-black text-white px-6 py-3 rounded-full"
+      >
+        Continue Shopping
+      </a>
+    </div>
+
     <!-- Total -->
     <div
-      class="fixed bottom-24 left-0 w-full bg-white z-50 shadow-[0_-8px_25px_rgba(0,0,0,0.08)]"
+      class="fixed bottom-16 left-0 w-full bg-white z-50 shadow-[0_-8px_25px_rgba(0,0,0,0.08)]"
     >
       <div class="flex flex-row items-center justify-between m-5">
         <div class="flex flex-col justify-start gap-2">
           <span class="text-xs text-gray-500">Total price</span>
-          <span class="text-xl font-bold">$240.00</span>
+          <span id="total-price" class="text-xl font-bold">$0.00</span>
         </div>
 
-        <a
-          href="../5-checkout/checkout.html"
+        <button
+          id="checkout-btn"
           class="flex flex-row items-center justify-center gap-5 bg-black text-white font-semibold rounded-full w-60 h-14"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-6 h-6"
-            viewBox="0 0 20 20"
-          >
-            <path d="M0 0h20v20H0z" fill="none" />
-            <path
-              fill="currentColor"
-              fill-rule="evenodd"
-              d="M10 2a4 4 0 0 0-4 4v1H5a1 1 0 0 0-.994.89l-1 9A1 1 0 0 0 4 18h12a1 1 0 0 0 .994-1.11l-1-9A1 1 0 0 0 15 7h-1V6a4 4 0 0 0-4-4m2 5V6a2 2 0 1 0-4 0v1zm-6 3a1 1 0 1 1 2 0a1 1 0 0 1-2 0m7-1a1 1 0 1 0 0 2a1 1 0 1 0 0-2"
-              clip-rule="evenodd"
-            />
-          </svg>
-
-          Add to Cart
-        </a>
+          <span>Checkout</span>
+          <span>➜</span>
+        </button>
       </div>
     </div>
 
@@ -122,46 +128,6 @@
         >
           Remove From Cart?
         </h2>
-
-        <div
-          class="my-4 flex items-center gap-3 rounded-[22px] bg-white p-3 shadow-md"
-        >
-          <div
-            class="flex h-20 w-20 items-center justify-center rounded-2xl bg-gray-100"
-          >
-            <img
-              id="modalProductImage"
-              src=""
-              alt="product"
-              class="h-16 w-16 object-contain"
-            />
-          </div>
-
-          <div class="flex-1">
-            <h3 id="modalProductName" class="text-sm font-bold text-gray-800">
-              Product Name
-            </h3>
-
-            <p id="modalProductInfo" class="mt-1 text-[10px] text-gray-400">
-              Color | Size
-            </p>
-
-            <p
-              id="modalProductPrice"
-              class="mt-2 text-sm font-bold text-gray-800"
-            >
-              $0.00
-            </p>
-          </div>
-
-          <div
-            id="modalProductQuantity"
-            class="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700"
-          >
-            - 1 +
-          </div>
-        </div>
-
 
         <div
           class="my-4 flex items-center gap-3 rounded-[22px] bg-white p-3 shadow-md"
@@ -229,3 +195,5 @@
     <script type="module" src="cart-product.js"></script>
   </body>
 </html>
+
+<a href="/Web/assets/images/image-productList/adidas/black.jfif"></a>

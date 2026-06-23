@@ -4,10 +4,6 @@ const applyButton = document.getElementById("applyButton");
 
 let selectedAddressId = null;
 
-/*
-  این تابع API را شبیه‌سازی می‌کند.
-  بعداً وقتی API واقعی داشتی، فقط این تابع را با fetch تغییر می‌دهی.
-*/
 async function getAddressesFromAPI() {
   return [
     {
@@ -37,23 +33,17 @@ async function getAddressesFromAPI() {
   ];
 }
 
-/*
-  آدرس‌هایی که کاربر خودش اضافه می‌کند از localStorage خوانده می‌شوند.
-*/
+// آدرس‌هایی که کاربر خودش اضافه می‌کند از localStorage خوانده می‌شوند.
 function getLocalAddresses() {
   return JSON.parse(localStorage.getItem("userAddresses")) || [];
 }
 
-/*
-  ذخیره آدرس‌های جدید کاربر در localStorage
-*/
+// ذخیره آدرس‌های جدید کاربر در localStorage
 function saveLocalAddresses(addresses) {
   localStorage.setItem("userAddresses", JSON.stringify(addresses));
 }
 
-/*
-  آیکون لوکیشن
-*/
+// آیکون لوکیشن
 function locationIcon() {
   return `
     <div class="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#E8E8E8]">
@@ -75,9 +65,7 @@ function locationIcon() {
   `;
 }
 
-/*
-  ساخت کارت هر آدرس
-*/
+// ساخت کارت هر آدرس
 function createAddressCard(address) {
   const isSelected = address.id === selectedAddressId;
 
@@ -121,16 +109,12 @@ function createAddressCard(address) {
   `;
 }
 
-/*
-  فقط Home از API نمایش داده می‌شود.
-  آدرس‌هایی که کاربر اضافه کرده هم نمایش داده می‌شوند.
-*/
+// فقط Home از API نمایش داده می‌شود.
+// آدرس‌هایی که کاربر اضافه کرده هم نمایش داده می‌شوند.
 async function renderAddresses() {
   const apiAddresses = await getAddressesFromAPI();
 
-  const homeAddress = apiAddresses.filter(
-    (address) => address.name === "Home"
-  );
+  const homeAddress = apiAddresses.filter((address) => address.name === "Home");
 
   const localAddresses = getLocalAddresses();
 
@@ -152,9 +136,7 @@ async function renderAddresses() {
   });
 }
 
-/*
-  اضافه کردن آدرس جدید
-*/
+// اضافه کردن آدرس جدید
 addAddressButton.addEventListener("click", function () {
   const name = prompt("Address name: مثال Work یا My House");
   const address = prompt("Full address:");
@@ -181,9 +163,7 @@ addAddressButton.addEventListener("click", function () {
   renderAddresses();
 });
 
-/*
-  ذخیره آدرس انتخاب‌شده برای نمایش در checkout.html
-*/
+// ذخیره آدرس انتخاب‌شده برای نمایش در checkout.html
 applyButton.addEventListener("click", async function () {
   const apiAddresses = await getAddressesFromAPI();
   const localAddresses = getLocalAddresses();
@@ -194,19 +174,16 @@ applyButton.addEventListener("click", async function () {
   ];
 
   const selectedAddress = allAddresses.find(
-    (address) => address.id === selectedAddressId
+    (address) => address.id === selectedAddressId,
   );
 
   if (!selectedAddress) {
     return;
   }
 
-  localStorage.setItem(
-    "selectedAddress",
-    JSON.stringify(selectedAddress)
-  );
+  localStorage.setItem("selectedAddress", JSON.stringify(selectedAddress));
 
-  window.location.href = "checkout.html";
+  window.location.href = "../checkout/checkout.html";
 });
 
 renderAddresses();

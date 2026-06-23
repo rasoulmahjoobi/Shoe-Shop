@@ -20,7 +20,7 @@
       <!-- Header -->
       <header class="mb-10 flex items-center justify-between">
         <a
-          href="../4-cart/cart-product.html"
+          href="/Web/src/4-cart/cart-product.html"
           class="flex h-10 w-10 items-center justify-start"
           aria-label="Back"
         >
@@ -76,7 +76,7 @@
           </div>
 
           <a
-            href="shiping-address.html"
+            href="../shiping-address/shiping-address.html"
             class="shrink-0"
             aria-label="Edit address"
           >
@@ -98,85 +98,8 @@
       <section class="border-b border-[#E8E8E8] py-7">
         <h2 class="mb-6 text-[23px] font-extrabold">Order List</h2>
 
-        <div class="space-y-7">
-          <!-- Product 1 -->
-          <article
-            class="flex items-center gap-5 rounded-[34px] bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.05)]"
-          >
-            <div
-              class="flex h-[140px] w-[140px] shrink-0 items-center justify-center rounded-[24px] bg-[#F2F2F2]"
-            >
-              <img
-                class="w-[125px] object-contain"
-                src="image-shoe-3.png"
-                alt="Air Jordan 3 Retro"
-              />
-            </div>
-
-            <div class="min-w-0 flex-1">
-              <h3 class="truncate text-[20px] font-extrabold">
-                Air Jordan 3 Retro
-              </h3>
-
-              <div
-                class="mt-3 flex items-center gap-2 text-[14px] text-[#666666]"
-              >
-                <span class="h-5 w-5 rounded-full bg-[#3B3B3B]"></span>
-                <span>Black</span>
-                <span>|</span>
-                <span>Size = 42</span>
-              </div>
-
-              <div class="mt-5 flex items-center justify-between">
-                <p class="text-[20px] font-extrabold">$105.00</p>
-                <span
-                  class="flex h-11 w-11 items-center justify-center rounded-full bg-[#F2F2F2] font-bold"
-                  >1</span
-                >
-              </div>
-            </div>
-          </article>
-
-          <!-- Product 2 -->
-          <article
-            class="flex items-center gap-5 rounded-[34px] bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.05)]"
-          >
-            <div
-              class="flex h-[140px] w-[140px] shrink-0 items-center justify-center rounded-[24px] bg-[#F2F2F2]"
-            >
-              <img
-                class="w-[125px] object-contain"
-                src="image-shoe-2.png"
-                alt="Running Sportwear"
-              />
-            </div>
-
-            <div class="min-w-0 flex-1">
-              <h3 class="truncate text-[20px] font-extrabold">
-                Running Sportwear
-              </h3>
-
-              <div
-                class="mt-3 flex items-center gap-2 text-[14px] text-[#666666]"
-              >
-                <span
-                  class="h-5 w-5 rounded-full border border-[#E3E3E3] bg-[#F4F4F4]"
-                ></span>
-                <span>Silver</span>
-                <span>|</span>
-                <span>Size = 41</span>
-              </div>
-
-              <div class="mt-5 flex items-center justify-between">
-                <p class="text-[20px] font-extrabold">$240.00</p>
-                <span
-                  class="flex h-11 w-11 items-center justify-center rounded-full bg-[#F2F2F2] font-bold"
-                  >2</span
-                >
-              </div>
-            </div>
-          </article>
-        </div>
+        <!-- توسط js اضافه میشود -->
+        <div id="checkout-product-list" class="space-y-7"></div>
       </section>
 
       <!-- Choose Shipping -->
@@ -184,7 +107,7 @@
         <h2 class="mb-6 text-[23px] font-extrabold">Choose Shipping</h2>
 
         <a
-          href="choose-shiping.html"
+          href="../choose-shiping/choose-shiping.html"
           class="flex w-full items-center gap-4 rounded-[26px] bg-white px-6 py-5 text-left shadow-[0_10px_35px_rgba(0,0,0,0.04)]"
         >
           <svg
@@ -286,7 +209,7 @@
             <span id="shippingPrice" class="font-bold text-[#333333]">-</span>
           </div>
 
-          <div class="my-6 h-px bg-[#E8E8E8]"></div>
+          <hr class="border-2 border-gray-400 bg-gray-400 my-5">
 
           <div class="flex justify-between text-[17px] text-[#626262]">
             <span>Total</span>
@@ -302,7 +225,7 @@
     >
       <div class="mx-auto max-w-md mb-14">
         <a
-          href="../5-checkout/payment-methods.html"
+          href="/Web/src/5-checkout/payment-methods/payment-methods.html"
           class="flex h-[68px] w-full items-center justify-center gap-4 rounded-full bg-[#111111] text-[18px] font-extrabold text-white shadow-[0_12px_20px_rgba(0,0,0,0.25)]"
         >
           Continue to Payment

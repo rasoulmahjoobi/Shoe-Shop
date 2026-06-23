@@ -1,531 +1,782 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Nike Air Max 270",
       "price": 129.99,
       "brand": "Nike",
-      "colors": ["Black", "White", "Red"],
+      "colors": [
+        "Black",
+        "White",
+        "Red"
+      ],
       "sold": 215,
       "rating": 4.8,
       "reviews": 124,
-      "image": "../../../assets/images/image-productList/nike/red.jfif",
+      "image": "/Web/assets/images/image-productList/nike/red.jfif",
       "images": [
-        "../../../assets/images/image-productList/nike/black.jfif",
-        "../../../assets/images/image-productList/nike/white.jfif"
+        "/Web/assets/images/image-productList/nike/black.jfif",
+        "/Web/assets/images/image-productList/nike/white.jfif"
       ],
       "description": "Comfortable running shoe",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 20,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Nike Air Force 1",
       "price": 119.99,
       "brand": "Nike",
-      "colors": ["White", "Black"],
+      "colors": [
+        "White",
+        "Black"
+      ],
       "sold": 342,
       "rating": 4.9,
       "reviews": 287,
-      "image": "../../../assets/images/image-productList/nike/black.jfif",
+      "image": "/Web/assets/images/image-productList/nike/black.jfif",
       "images": [
-        "../../../assets/images/image-productList/nike/white.jfif"
+        "/Web/assets/images/image-productList/nike/white.jfif"
       ],
       "description": "Classic streetwear sneaker",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 25,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Nike Revolution 7",
       "price": 89.99,
       "brand": "Nike",
-      "colors": ["Blue", "Black"],
+      "colors": [
+        "Blue",
+        "Black"
+      ],
       "sold": 154,
       "rating": 4.5,
       "reviews": 98,
-      "image": "../../../assets/images/image-productList/nike/blue.jfif",
+      "image": "/Web/assets/images/image-productList/nike/blue.jfif",
       "images": [
-        "../../../assets/images/image-productList/nike/black.jfif"
+        "/Web/assets/images/image-productList/nike/black.jfif"
       ],
       "description": "Lightweight running shoe",
-      "sizes": [40, 41, 42, 43],
+      "sizes": [
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 0,
       "popular": true,
       "favorite": false
     },
-
     {
-      "id": 4,
+      "id": "4",
       "title": "Adidas Ultraboost Light",
       "price": 149.99,
       "brand": "Adidas",
-      "colors": ["White", "Blue"],
+      "colors": [
+        "White",
+        "Blue"
+      ],
       "sold": 178,
       "rating": 4.7,
       "reviews": 131,
-      "image": "../../../assets/images/image-productList/adidas/blue.jfif",
+      "image": "/Web/assets/images/image-productList/adidas/blue.jfif",
       "images": [
-        "../../../assets/images/image-productList/adidas/white.jfif"
+        "/Web/assets/images/image-productList/adidas/white.jfif"
       ],
       "description": "Premium comfort shoe",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 12,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Adidas Superstar",
       "price": 99.99,
       "brand": "Adidas",
-      "colors": ["White", "Black"],
+      "colors": [
+        "White",
+        "Black"
+      ],
       "sold": 265,
       "rating": 4.8,
       "reviews": 215,
-      "image": "../../../assets/images/image-productList/adidas/black.jfif",
+      "image": "/Web/assets/images/image-productList/adidas/black.jfif",
       "images": [
-        "../../../assets/images/image-productList/adidas/white.jfif"
+        "/Web/assets/images/image-productList/adidas/white.jfif"
       ],
       "description": "Iconic shell-toe sneaker",
-      "sizes": [39, 40, 41, 42],
+      "sizes": [
+        39,
+        40,
+        41,
+        42
+      ],
       "qty": 35,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Adidas Runfalcon",
       "price": 79.99,
       "brand": "Adidas",
-      "colors": ["Gray", "Blue"],
+      "colors": [
+        "Gray",
+        "Blue"
+      ],
       "sold": 121,
       "rating": 4.4,
       "reviews": 76,
-      "image": "../../../assets/images/image-productList/adidas/gray.jfif",
+      "image": "/Web/assets/images/image-productList/adidas/gray.jfif",
       "images": [
-        "../../../assets/images/image-productList/adidas/blue.jfif"
+        "/Web/assets/images/image-productList/adidas/blue.jfif"
       ],
       "description": "Daily running shoe",
-      "sizes": [40, 41, 42, 43],
+      "sizes": [
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 41,
       "popular": true,
       "favorite": false
     },
-
     {
-      "id": 7,
+      "id": "7",
       "title": "Puma RS-X",
       "price": 109.99,
       "brand": "Puma",
-      "colors": ["Yellow", "Blue"],
+      "colors": [
+        "Yellow",
+        "Blue"
+      ],
       "sold": 96,
       "rating": 4.3,
       "reviews": 54,
-      "image": "../../../assets/images/image-productList/puma/blue.jfif",
+      "image": "/Web/assets/images/image-productList/puma/blue.jfif",
       "images": [
-        "../../../assets/images/image-productList/puma/yellow.jfif"
+        "/Web/assets/images/image-productList/puma/yellow.jfif"
       ],
       "description": "Chunky retro sneaker",
-      "sizes": [40, 41, 42, 43],
+      "sizes": [
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 5,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Puma Velocity Nitro",
       "price": 139.99,
       "brand": "Puma",
-      "colors": ["Green", "Black"],
+      "colors": [
+        "Green",
+        "Black"
+      ],
       "sold": 87,
       "rating": 4.6,
       "reviews": 61,
-      "image": "../../../assets/images/image-productList/puma/green.jfif",
+      "image": "/Web/assets/images/image-productList/puma/green.jfif",
       "images": [
-        "../../../assets/images/image-productList/puma/black.jfif"
+        "/Web/assets/images/image-productList/puma/black.jfif"
       ],
       "description": "Responsive running shoe",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 3,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Puma Caven 2.0",
       "price": 84.99,
       "brand": "Puma",
-      "colors": ["White", "Green"],
+      "colors": [
+        "White",
+        "Green"
+      ],
       "sold": 143,
       "rating": 4.4,
       "reviews": 82,
-      "image": "../../../assets/images/image-productList/puma/white.jfif",
+      "image": "/Web/assets/images/image-productList/puma/white.jfif",
       "images": [
-        "../../../assets/images/image-productList/puma/green.jfif"
+        "/Web/assets/images/image-productList/puma/green.jfif"
       ],
       "description": "Basketball-inspired sneaker",
-      "sizes": [39, 40, 41, 42],
+      "sizes": [
+        39,
+        40,
+        41,
+        42
+      ],
       "qty": 8,
       "popular": false,
       "favorite": false
     },
-
     {
-      "id": 10,
+      "id": "10",
       "title": "Asics Gel-Kayano 31",
       "price": 159.99,
       "brand": "Asics",
-      "colors": ["Blue", "White"],
+      "colors": [
+        "Blue",
+        "White"
+      ],
       "sold": 192,
       "rating": 4.9,
       "reviews": 156,
-      "image": "../../../assets/images/image-productList/asics/blue.jfif",
+      "image": "/Web/assets/images/image-productList/asics/blue.jfif",
       "images": [
-        "../../../assets/images/image-productList/asics/white.jfif"
+        "/Web/assets/images/image-productList/asics/white.jfif"
       ],
       "description": "Stability running shoe",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 0,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 11,
+      "id": "11",
       "title": "Asics Gel-Nimbus 26",
       "price": 169.99,
       "brand": "Asics",
-      "colors": ["Black", "Gray"],
+      "colors": [
+        "Black",
+        "Gray"
+      ],
       "sold": 145,
       "rating": 4.8,
       "reviews": 118,
-      "image": "../../../assets/images/image-productList/asics/black.jfif",
+      "image": "/Web/assets/images/image-productList/asics/black.jfif",
       "images": [
-        "../../../assets/images/image-productList/asics/gray.jfif"
+        "/Web/assets/images/image-productList/asics/gray.jfif"
       ],
       "description": "Soft cushioned trainer",
-      "sizes": [40, 41, 42, 43],
+      "sizes": [
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 14,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 12,
+      "id": "12",
       "title": "Asics GT-2000",
       "price": 129.99,
       "brand": "Asics",
-      "colors": ["Black", "Red"],
+      "colors": [
+        "Black",
+        "Red"
+      ],
       "sold": 109,
       "rating": 4.6,
       "reviews": 92,
-      "image": "../../../assets/images/image-productList/asics/red.jfif",
+      "image": "/Web/assets/images/image-productList/asics/red.jfif",
       "images": [
-        "../../../assets/images/image-productList/asics/black.jfif"
+        "/Web/assets/images/image-productList/asics/black.jfif"
       ],
       "description": "Reliable daily trainer",
-      "sizes": [40, 41, 42, 43],
+      "sizes": [
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 0,
       "popular": true,
       "favorite": false
     },
-
     {
-      "id": 13,
+      "id": "13",
       "title": "Reebok Club C 85",
       "price": 89.99,
       "brand": "Reebok",
-      "colors": ["White", "Green"],
+      "colors": [
+        "White",
+        "Green"
+      ],
       "sold": 167,
       "rating": 4.7,
       "reviews": 121,
-      "image": "../../../assets/images/image-productList/reebok/white.jfif",
+      "image": "/Web/assets/images/image-productList/reebok/white.jfif",
       "images": [
-        "../../../assets/images/image-productList/reebok/green.jfif"
+        "/Web/assets/images/image-productList/reebok/green.jfif"
       ],
       "description": "Classic tennis sneaker",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 22,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 14,
+      "id": "14",
       "title": "Reebok Nano X4",
       "price": 139.99,
       "brand": "Reebok",
-      "colors": ["Black", "Orange"],
+      "colors": [
+        "Black",
+        "Orange"
+      ],
       "sold": 101,
       "rating": 4.5,
       "reviews": 74,
-      "image": "../../../assets/images/image-productList/reebok/orange.jfif",
+      "image": "/Web/assets/images/image-productList/reebok/orange.jfif",
       "images": [
-        "../../../assets/images/image-productList/reebok/black.jfif"
+        "/Web/assets/images/image-productList/reebok/black.jfif"
       ],
       "description": "Cross training shoe",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 11,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 15,
+      "id": "15",
       "title": "Reebok Floatride Energy",
       "price": 109.99,
       "brand": "Reebok",
-      "colors": ["Blue", "Black"],
+      "colors": [
+        "Blue",
+        "Black"
+      ],
       "sold": 88,
       "rating": 4.4,
       "reviews": 63,
-      "image": "../../../assets/images/image-productList/reebok/blue.jfif",
+      "image": "/Web/assets/images/image-productList/reebok/blue.jfif",
       "images": [
-        "../../../assets/images/image-productList/reebok/black.jfif"
+        "/Web/assets/images/image-productList/reebok/black.jfif"
       ],
       "description": "Lightweight running shoe",
-      "sizes": [40, 41, 42, 43],
+      "sizes": [
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 17,
       "popular": true,
       "favorite": false
     },
-
     {
-      "id": 16,
+      "id": "16",
       "title": "New Balance 574",
       "price": 99.99,
       "brand": "New Balance",
-      "colors": ["Gray", "blue"],
+      "colors": [
+        "Gray",
+        "blue"
+      ],
       "sold": 142,
       "rating": 4.7,
       "reviews": 118,
-      "image": "../../../assets/images/image-productList/new-balance/gray.jfif",
+      "image": "/Web/assets/images/image-productList/new-balance/gray.jfif",
       "images": [
-        "../../../assets/images/image-productList/new-balance/blue.jfif"
+        "/Web/assets/images/image-productList/new-balance/blue.jfif"
       ],
       "description": "Timeless casual sneaker",
-      "sizes": [40, 41, 42, 43],
+      "sizes": [
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 26,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 17,
+      "id": "17",
       "title": "New Balance 530",
       "price": 104.99,
       "brand": "New Balance",
-      "colors": ["White", "Orange"],
+      "colors": [
+        "White",
+        "Orange"
+      ],
       "sold": 196,
       "rating": 4.8,
       "reviews": 133,
-      "image": "../../../assets/images/image-productList/new-balance/orange.jfif",
+      "image": "/Web/assets/images/image-productList/new-balance/orange.jfif",
       "images": [
-        "../../../assets/images/image-productList/new-balance/white.jfif"
+        "/Web/assets/images/image-productList/new-balance/white.jfif"
       ],
       "description": "Retro running sneaker",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 0,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 18,
+      "id": "18",
       "title": "New Balance 9060",
       "price": 179.99,
       "brand": "New Balance",
-      "colors": ["Gray", "Black"],
+      "colors": [
+        "Gray",
+        "Black"
+      ],
       "sold": 124,
       "rating": 4.9,
       "reviews": 95,
-      "image": "../../../assets/images/image-productList/new-balance/black.jfif",
+      "image": "/Web/assets/images/image-productList/new-balance/black.jfif",
       "images": [
-        "../../../assets/images/image-productList/new-balance/gray.jfif"
+        "/Web/assets/images/image-productList/new-balance/gray.jfif"
       ],
       "description": "Modern lifestyle sneaker",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 7,
       "popular": true,
       "favorite": false
     },
-
     {
-      "id": 19,
+      "id": "19",
       "title": "Converse Chuck Taylor High",
       "price": 69.99,
       "brand": "Converse",
-      "colors": ["Black", "White"],
+      "colors": [
+        "Black",
+        "White"
+      ],
       "sold": 312,
       "rating": 4.8,
       "reviews": 246,
-      "image": "../../../assets/images/image-productList/converse/black.jfif",
+      "image": "/Web/assets/images/image-productList/converse/black.jfif",
       "images": [
-        "../../../assets/images/image-productList/converse/white.jfif"
+        "/Web/assets/images/image-productList/converse/white.jfif"
       ],
       "description": "Classic high-top sneaker",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 33,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 20,
+      "id": "20",
       "title": "Converse Chuck 70",
       "price": 89.99,
       "brand": "Converse",
-      "colors": ["Red", "Black", "Brown"],
+      "colors": [
+        "Red",
+        "Black",
+        "Brown"
+      ],
       "sold": 187,
       "rating": 4.9,
       "reviews": 158,
-      "image": "../../../assets/images/image-productList/converse/brown.jfif",
+      "image": "/Web/assets/images/image-productList/converse/brown.jfif",
       "images": [
-        "../../../assets/images/image-productList/converse/red.jfif",
-        "../../../assets/images/image-productList/converse/black.jfif"
+        "/Web/assets/images/image-productList/converse/red.jfif",
+        "/Web/assets/images/image-productList/converse/black.jfif"
       ],
       "description": "Premium vintage sneaker",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 15,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 21,
+      "id": "21",
       "title": "Converse Run Star Hike",
       "price": 119.99,
       "brand": "Converse",
-      "colors": ["White", "Red"],
+      "colors": [
+        "White",
+        "Red"
+      ],
       "sold": 135,
       "rating": 4.7,
       "reviews": 111,
-      "image": "../../../assets/images/image-productList/converse/red.jfif",
+      "image": "/Web/assets/images/image-productList/converse/red.jfif",
       "images": [
-        "../../../assets/images/image-productList/converse/white.jfif"
+        "/Web/assets/images/image-productList/converse/white.jfif"
       ],
       "description": "Platform lifestyle sneaker",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 7,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 22,
+      "id": "22",
       "title": "Nike ZoomX Vaporfly Next% 3",
       "price": 249.99,
       "brand": "Nike",
-      "colors": ["Green", "Black", "White"],
+      "colors": [
+        "Green",
+        "Black",
+        "White"
+      ],
       "sold": 98,
       "rating": 4.9,
       "reviews": 76,
-      "image": "../../../assets/images/image-productList/nike/green.jfif",
+      "image": "/Web/assets/images/image-productList/nike/green.jfif",
       "images": [
-        "../../../assets/images/image-productList/nike/white.jfif",
-        "../../../assets/images/image-productList/nike/black.jfif"
+        "/Web/assets/images/image-productList/nike/white.jfif",
+        "/Web/assets/images/image-productList/nike/black.jfif"
       ],
       "description": "Elite racing running shoe",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 9,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 23,
+      "id": "23",
       "title": "Nike React Infinity Run Flyknit 3",
       "price": 139.99,
       "brand": "Nike",
-      "colors": ["Black", "Blue", "White"],
+      "colors": [
+        "Black",
+        "Blue",
+        "White"
+      ],
       "sold": 176,
       "rating": 4.7,
       "reviews": 132,
-      "image": "../../../assets/images/image-productList/nike/white.jfif",
+      "image": "/Web/assets/images/image-productList/nike/white.jfif",
       "images": [
-        "../../../assets/images/image-productList/nike/blue.jfif",
-        "../../../assets/images/image-productList/nike/black.jfif"
+        "/Web/assets/images/image-productList/nike/blue.jfif",
+        "/Web/assets/images/image-productList/nike/black.jfif"
       ],
       "description": "Stable and cushioned running shoe",
-      "sizes": [39, 40, 41, 42, 43, 44],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 14,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 24,
+      "id": "24",
       "title": "Adidas NMD_R1 V3",
       "price": 149.99,
       "brand": "Adidas",
-      "colors": ["Black", "White", "Gray"],
+      "colors": [
+        "Black",
+        "White",
+        "Gray"
+      ],
       "sold": 188,
       "rating": 4.7,
       "reviews": 141,
-      "image": "../../../assets/images/image-productList/adidas/white.jfif",
+      "image": "/Web/assets/images/image-productList/adidas/white.jfif",
       "images": [
-        "../../../assets/images/image-productList/adidas/black.jfif",
-        "../../../assets/images/image-productList/adidas/gray.jfif"
+        "/Web/assets/images/image-productList/adidas/black.jfif",
+        "/Web/assets/images/image-productList/adidas/gray.jfif"
       ],
       "description": "Modern street-style sneaker with Boost comfort",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 0,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 25,
+      "id": "25",
       "title": "Adidas Forum Low",
       "price": 109.99,
       "brand": "Adidas",
-      "colors": ["White", "Blue", "Red"],
+      "colors": [
+        "White",
+        "Blue",
+        "Red"
+      ],
       "sold": 203,
       "rating": 4.6,
       "reviews": 167,
-      "image": "../../../assets/images/image-productList/adidas/red.jfif",
+      "image": "/Web/assets/images/image-productList/adidas/red.jfif",
       "images": [
-        "../../../assets/images/image-productList/adidas/blue.jfif",
-        "../../../assets/images/image-productList/adidas/white.jfif"
+        "/Web/assets/images/image-productList/adidas/blue.jfif",
+        "/Web/assets/images/image-productList/adidas/white.jfif"
       ],
       "description": "Retro basketball-inspired sneaker",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 21,
       "popular": false,
       "favorite": false
     },
     {
-      "id": 26,
+      "id": "26",
       "title": "Puma RS-X Efekt",
       "price": 119.99,
       "brand": "Puma",
-      "colors": ["Black", "Green", "White"],
+      "colors": [
+        "Black",
+        "Green",
+        "White"
+      ],
       "sold": 134,
       "rating": 4.5,
       "reviews": 98,
-      "image": "../../../assets/images/image-productList/puma/black.jfif",
+      "image": "/Web/assets/images/image-productList/puma/black.jfif",
       "images": [
-        "../../../assets/images/image-productList/puma/green.jfif",
-        "../../../assets/images/image-productList/puma/white.jfif"
+        "/Web/assets/images/image-productList/puma/green.jfif",
+        "/Web/assets/images/image-productList/puma/white.jfif"
       ],
       "description": "Bold chunky sneaker with modern design",
-      "sizes": [40, 41, 42, 43, 44],
+      "sizes": [
+        40,
+        41,
+        42,
+        43,
+        44
+      ],
       "qty": 11,
       "popular": true,
       "favorite": false
     },
     {
-      "id": 27,
+      "id": "27",
       "title": "Puma Ignite Flash Evoknit",
       "price": 99.99,
       "brand": "Puma",
-      "colors": ["Yellow", "Blue", "Black"],
+      "colors": [
+        "Yellow",
+        "Blue",
+        "Black"
+      ],
       "sold": 112,
       "rating": 4.4,
       "reviews": 83,
-      "image": "../../../assets/images/image-productList/puma/yellow.jfif",
+      "image": "/Web/assets/images/image-productList/puma/yellow.jfif",
       "images": [
-        "../../../assets/images/image-productList/puma/black.jfif",
-        "../../../assets/images/image-productList/puma/blue.jfif"
+        "/Web/assets/images/image-productList/puma/black.jfif",
+        "/Web/assets/images/image-productList/puma/blue.jfif"
       ],
       "description": "Lightweight breathable running shoe",
-      "sizes": [39, 40, 41, 42, 43],
+      "sizes": [
+        39,
+        40,
+        41,
+        42,
+        43
+      ],
       "qty": 18,
       "popular": false,
       "favorite": false
     }
-  ]
+  ],
+  "cart": [
+    {
+      "productId": "1",
+      "name": "Nike Air Max 270",
+      "image": "/Web/assets/images/image-productList/nike/red.jfif",
+      "price": 129.99,
+      "color": "Black",
+      "size": 44,
+      "info": "Black | Size = 44",
+      "quantity": 1,
+      "id": "5j23rwaCxCQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
