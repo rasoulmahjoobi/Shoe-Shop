@@ -767,15 +767,15 @@
   ],
   "cart": [
     {
-      "productId": "1",
-      "name": "Nike Air Max 270",
-      "image": "/Web/assets/images/image-productList/nike/red.jfif",
-      "price": 129.99,
-      "color": "Black",
+      "productId": "4",
+      "name": "Adidas Ultraboost Light",
+      "image": "/Web/assets/images/image-productList/adidas/blue.jfif",
+      "price": 149.99,
+      "color": "White",
       "size": 44,
-      "info": "Black | Size = 44",
-      "quantity": 1,
-      "id": "5j23rwaCxCQ"
+      "info": "White | Size = 44",
+      "quantity": 2,
+      "id": "pV3D1ApQKtw"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -20,51 +20,7 @@
       <!-- Header -->
       <header class="flex items-center justify-between">
         <div class="flex items-center gap-3">
-          <svg
-            class="h-7 w-7"
-            viewBox="0 0 54 81"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M9.23355 17.7415C22.2531 10.4389 33.6453 3.542 39.7482 0.499261C44.834 -2.54348 47.1042 9.00132 42.7997 16.7273C38.4952 24.4532 26.5252 28.8982 26.5252 28.8982C26.5252 28.8982 52.9712 22.8128 53.9884 46.1404C54.2537 52.2259 49.9198 59.3256 46.8683 61.3541C43.8168 63.3826 17.3708 79.1034 14.3194 80.6248C10.7425 82.4081 9.23359 77.582 9.23359 71.4965C9.23359 57.2971 25.5081 52.2259 25.5081 52.2259C11.2679 54.2544 2.1135 49.1832 0.0791923 33.9695C-0.598903 28.8982 3.13068 21.1646 9.23355 17.7415Z"
-              fill="black"
-            />
-          </svg>
-
           <h1 class="text-[28px] font-extrabold tracking-[-1px]">My Orders</h1>
-        </div>
-
-        <div class="flex items-center gap-3">
-          <button class="flex h-10 w-10 items-center justify-center">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.742 11.344C13.7103 10.0227 14.144 8.38447 13.9563 6.75713C13.7686 5.12979 12.9734 3.63332 11.7297 2.56711C10.4861 1.5009 8.88573 0.943582 7.24882 1.00666C5.61191 1.06973 4.05917 1.74854 2.90125 2.90729C1.74333 4.06603 1.06563 5.61926 1.00373 7.25621C0.941829 8.89317 1.50029 10.4931 2.56739 11.736C3.63449 12.9789 5.13153 13.773 6.759 13.9596C8.38648 14.1461 10.0244 13.7112 11.345 12.742H11.344L15.292 16.707"
-                stroke="#222222"
-                stroke-width="1.8"
-                stroke-linecap="round"
-              />
-              <circle
-                cx="7.5"
-                cy="7.5"
-                r="5.5"
-                stroke="#222222"
-                stroke-width="1.8"
-              />
-            </svg>
-          </button>
-
-          <button
-            class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#222222] text-[18px] font-bold"
-          >
-            •••
-          </button>
         </div>
       </header>
 
@@ -94,14 +50,56 @@
         </div>
       </section>
 
-      <!-- کارت‌ها توسط JavaScript ساخته می‌شوند -->
+      <!-- Orders -->
       <section class="mt-8">
+        <!-- لیست سفارش‌ها -->
         <div id="ordersContainer" class="space-y-5"></div>
+
+        <!-- Empty State -->
+        <section
+          id="notFoundSection"
+          class="hidden flex flex-col items-center px-5 pt-20 text-center"
+        >
+          <div class="relative h-[220px] w-[250px]">
+            <!-- card back -->
+            <div
+              class="absolute left-[35px] top-[24px] h-[150px] w-[120px] rotate-[-16deg] rounded-[10px] border border-[#4B4B55] bg-white"
+            >
+              <div
+                class="absolute left-1/2 top-[-18px] h-[32px] w-[105px] -translate-x-1/2 rounded-[5px] bg-[#111111]"
+              ></div>
+              <div
+                class="absolute left-[17px] top-[24px] h-[112px] w-[85px] rounded-[4px] bg-[#F0F0F0]"
+              ></div>
+              <div
+                class="absolute left-1/2 top-[-31px] h-[20px] w-[20px] -translate-x-1/2 rounded-full border-[3px] border-[#111111] bg-white"
+              ></div>
+            </div>
+
+            <!-- card front -->
+            <div
+              class="absolute right-[18px] top-[58px] h-[165px] w-[150px] rounded-[10px] border border-[#4B4B55] bg-white"
+            >
+              <div
+                class="absolute left-1/2 top-[-18px] h-[34px] w-[108px] -translate-x-1/2 rounded-[5px] bg-[#111111]"
+              ></div>
+              <div
+                class="absolute left-[19px] top-[22px] h-[122px] w-[112px] rounded-[4px] bg-[#E7E7E7]"
+              ></div>
+              <div
+                class="absolute left-1/2 top-[-31px] h-[20px] w-[20px] -translate-x-1/2 rounded-full border-[3px] border-[#111111] bg-white"
+              ></div>
+            </div>
+          </div>
+
+          <h2 class="mt-8 text-[19px] font-extrabold">
+            You don't have an order yet!
+          </h2>
+        </section>
       </section>
     </main>
 
-    <!-- nav-bar -->
-    <!-- توسط js اضافه میشود -->
+    <!-- Navbar -->
     <div id="navbar"></div>
 
     <script type="module" src="order.js"></script>
