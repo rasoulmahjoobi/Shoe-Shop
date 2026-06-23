@@ -1,4 +1,8 @@
-  //  Shipping Address
+//ساخت navbar
+import { navbar } from "../components/navbar.js";
+document.getElementById("navbar").innerHTML = navbar();
+
+//  Shipping Address
 const savedAddress = JSON.parse(localStorage.getItem("selectedAddress"));
 
 const selectedAddressName = document.getElementById("selectedAddressName");
@@ -9,15 +13,15 @@ if (savedAddress && selectedAddressName && selectedAddressText) {
   selectedAddressText.textContent = savedAddress.address;
 }
 
-  //  Temporary Cart Products
-  //  محصولات موقت برای صفحه Checkout
+//  Temporary Cart Products
+//  محصولات موقت برای صفحه Checkout
 
-  //  فعلاً چون محصولات از صفحه Cart یا API دریافت نمی‌شوند،
-  //  این دو محصول به صورت موقت داخل localStorage ذخیره می‌شوند.
+//  فعلاً چون محصولات از صفحه Cart یا API دریافت نمی‌شوند،
+//  این دو محصول به صورت موقت داخل localStorage ذخیره می‌شوند.
 
-  //  بعداً وقتی Cart و API کامل شد،
-  //  کل این بخش را حذف کن و به جای آن محصولات واقعی را
-  //  از localStorage یا API دریافت کن.
+//  بعداً وقتی Cart و API کامل شد،
+//  کل این بخش را حذف کن و به جای آن محصولات واقعی را
+//  از localStorage یا API دریافت کن.
 if (!localStorage.getItem("cartItems")) {
   const temporaryCartItems = [
     {
@@ -39,11 +43,11 @@ if (!localStorage.getItem("cartItems")) {
       size: 41,
     },
   ];
-// بعد از ساخت api این قسمت نباید تغییر کند
+  // بعد از ساخت api این قسمت نباید تغییر کند
   localStorage.setItem("cartItems", JSON.stringify(temporaryCartItems));
 }
 
-  //  Cart Amount
+//  Cart Amount
 const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
 const amount = cartItems.reduce((total, item) => {
@@ -53,24 +57,23 @@ const amount = cartItems.reduce((total, item) => {
   return total + price * quantity;
 }, 0);
 
-  //  Shipping
-const selectedShipping = JSON.parse(
-  localStorage.getItem("selectedShipping")
-);
+//  Shipping
+const selectedShipping = JSON.parse(localStorage.getItem("selectedShipping"));
 
 const shippingAmount = selectedShipping
   ? Number(selectedShipping.price) || 0
   : 0;
 
 const shippingType = document.getElementById("selectedShippingType");
-const shippingArrival = document.getElementById(
-  "selectedShippingArrival"
-);
-const selectedShippingPrice = document.getElementById(
-  "selectedShippingPrice"
-);
+const shippingArrival = document.getElementById("selectedShippingArrival");
+const selectedShippingPrice = document.getElementById("selectedShippingPrice");
 
-if (selectedShipping && shippingType && shippingArrival && selectedShippingPrice) {
+if (
+  selectedShipping &&
+  shippingType &&
+  shippingArrival &&
+  selectedShippingPrice
+) {
   shippingType.textContent = selectedShipping.name;
 
   shippingArrival.textContent = selectedShipping.arrival;
@@ -80,7 +83,7 @@ if (selectedShipping && shippingType && shippingArrival && selectedShippingPrice
   selectedShippingPrice.classList.remove("hidden");
 }
 
-  //  Promo / Discount
+//  Promo / Discount
 const promoBadge = document.getElementById("promoBadge");
 const promoText = document.getElementById("promoText");
 const removePromoButton = document.getElementById("removePromoButton");
@@ -102,11 +105,9 @@ if (localStorage.getItem("discountPercent") === null) {
   localStorage.setItem("discountPercent", "20");
 }
 
-let discountPercent = Number(
-  localStorage.getItem("discountPercent")
-);
+let discountPercent = Number(localStorage.getItem("discountPercent"));
 
-  //  Calculate + Update UI
+//  Calculate + Update UI
 function updateCheckoutPrices() {
   const discountAmount = amount * (discountPercent / 100);
 
@@ -161,7 +162,7 @@ function updateCheckoutPrices() {
   }
 }
 
-  //  Remove Discount
+//  Remove Discount
 if (removePromoButton) {
   removePromoButton.addEventListener("click", function () {
     discountPercent = 0;
@@ -172,7 +173,7 @@ if (removePromoButton) {
   });
 }
 
-  //  Add Discount Again
+//  Add Discount Again
 if (addPromoButton) {
   addPromoButton.addEventListener("click", function () {
     discountPercent = 20;
@@ -183,5 +184,5 @@ if (addPromoButton) {
   });
 }
 
-  //  First Page Load
+//  First Page Load
 updateCheckoutPrices();

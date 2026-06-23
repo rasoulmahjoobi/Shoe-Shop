@@ -1,3 +1,7 @@
+//ساخت navbar
+import { navbar } from "../components/navbar.js";
+document.getElementById("navbar").innerHTML = navbar();
+
 const activeTab = document.getElementById("activeTab");
 const completedTab = document.getElementById("completedTab");
 const tabIndicator = document.getElementById("tabIndicator");
@@ -10,58 +14,58 @@ const ordersContainer = document.getElementById("ordersContainer");
   status: true   => Completed
 */
 const orders = [
-    {
-        id: 1,
-        title: "Air Jordan 3 Retro",
-        color: "Black",
-        colorCode: "#3D3D3D",
-        size: 42,
-        qty: 1,
-        price: 105,
-        image: "image-shoe-3.png",
-        status: true,
-    },
-    {
-        id: 2,
-        title: "Running Sportwear",
-        color: "Silver",
-        colorCode: "#E4E4E4",
-        size: 41,
-        qty: 2,
-        price: 240,
-        image: "image-shoe-2.png",
-        status: false,
-    },
-    {
-        id: 3,
-        title: "New Balance 996 V2",
-        color: "Brown",
-        colorCode: "#6E6E6E",
-        size: 42,
-        qty: 1,
-        price: 125,
-        image: "image-shoe-1.png",
-        status: true,
-    },
-    {
-        id: 4,
-        title: "Fila Running Sneakers",
-        color: "Silver",
-        colorCode: "#E4E4E4",
-        size: 42,
-        qty: 1,
-        price: 95,
-        image: "image-shoe-4.png",
-        status: false,
-    },
+  {
+    id: 1,
+    title: "Air Jordan 3 Retro",
+    color: "Black",
+    colorCode: "#3D3D3D",
+    size: 42,
+    qty: 1,
+    price: 105,
+    image: "image-shoe-3.png",
+    status: true,
+  },
+  {
+    id: 2,
+    title: "Running Sportwear",
+    color: "Silver",
+    colorCode: "#E4E4E4",
+    size: 41,
+    qty: 2,
+    price: 240,
+    image: "image-shoe-2.png",
+    status: false,
+  },
+  {
+    id: 3,
+    title: "New Balance 996 V2",
+    color: "Brown",
+    colorCode: "#6E6E6E",
+    size: 42,
+    qty: 1,
+    price: 125,
+    image: "image-shoe-1.png",
+    status: true,
+  },
+  {
+    id: 4,
+    title: "Fila Running Sneakers",
+    color: "Silver",
+    colorCode: "#E4E4E4",
+    size: 42,
+    qty: 1,
+    price: 95,
+    image: "image-shoe-4.png",
+    status: false,
+  },
 ];
 
 let currentTab = "active";
 
 function createOrderCard(order) {
-    const isCompleted = order.status === true;
+  const isCompleted = order.status === true;
 
-    return `
+  return `
     <article
       class="flex min-h-[174px] w-full items-center gap-3 rounded-[28px] bg-white p-3 shadow-[0_10px_28px_rgba(0,0,0,0.06)]"
     >
@@ -117,18 +121,18 @@ function createOrderCard(order) {
 }
 
 function renderOrders() {
-    const filteredOrders = orders.filter((order) => {
-        if (currentTab === "active") {
-            return order.status === false;
-        }
+  const filteredOrders = orders.filter((order) => {
+    if (currentTab === "active") {
+      return order.status === false;
+    }
 
-        return order.status === true;
-    });
+    return order.status === true;
+  });
 
-    if (filteredOrders.length === 0) {
-        const isActiveTab = currentTab === "active";
+  if (filteredOrders.length === 0) {
+    const isActiveTab = currentTab === "active";
 
-        ordersContainer.innerHTML = `
+    ordersContainer.innerHTML = `
     <div class="flex flex-col items-center px-3 pt-24 text-center">
       
       <!-- تصویر خالی بودن سفارش‌ها -->
@@ -174,45 +178,46 @@ function renderOrders() {
       </h2>
 
       <p class="mt-5 max-w-[320px] text-[18px] leading-relaxed text-[#555555]">
-        ${isActiveTab
-                ? "You don't have an active orders at this time"
-                : "You don't have any completed orders at this time"
-            }
+        ${
+          isActiveTab
+            ? "You don't have an active orders at this time"
+            : "You don't have any completed orders at this time"
+        }
       </p>
     </div>
   `;
 
-        return;
-    }
-    ordersContainer.innerHTML = filteredOrders
-        .map((order) => createOrderCard(order))
-        .join("");
+    return;
+  }
+  ordersContainer.innerHTML = filteredOrders
+    .map((order) => createOrderCard(order))
+    .join("");
 }
 
 function setActiveTab() {
-    currentTab = "active";
+  currentTab = "active";
 
-    activeTab.className =
-        "w-1/2 pb-4 text-center text-[20px] font-extrabold text-[#222222]";
+  activeTab.className =
+    "w-1/2 pb-4 text-center text-[20px] font-extrabold text-[#222222]";
 
-    completedTab.className =
-        "w-1/2 pb-4 text-center text-[20px] font-medium text-[#A7A7A7]";
+  completedTab.className =
+    "w-1/2 pb-4 text-center text-[20px] font-medium text-[#A7A7A7]";
 
-    tabIndicator.style.left = "0";
-    renderOrders();
+  tabIndicator.style.left = "0";
+  renderOrders();
 }
 
 function setCompletedTab() {
-    currentTab = "completed";
+  currentTab = "completed";
 
-    completedTab.className =
-        "w-1/2 pb-4 text-center text-[20px] font-extrabold text-[#222222]";
+  completedTab.className =
+    "w-1/2 pb-4 text-center text-[20px] font-extrabold text-[#222222]";
 
-    activeTab.className =
-        "w-1/2 pb-4 text-center text-[20px] font-medium text-[#A7A7A7]";
+  activeTab.className =
+    "w-1/2 pb-4 text-center text-[20px] font-medium text-[#A7A7A7]";
 
-    tabIndicator.style.left = "50%";
-    renderOrders();
+  tabIndicator.style.left = "50%";
+  renderOrders();
 }
 
 activeTab.addEventListener("click", setActiveTab);
