@@ -6,6 +6,7 @@ const activeTab = document.getElementById("activeTab");
 const completedTab = document.getElementById("completedTab");
 const tabIndicator = document.getElementById("tabIndicator");
 const ordersContainer = document.getElementById("ordersContainer");
+const notFoundSection = document.getElementById("notFoundSection");
 
 let orders = JSON.parse(localStorage.getItem("checkoutOrder")) || [];
 let currentTab = "active";
@@ -14,17 +15,9 @@ function createOrderCard(order) {
   const isCompleted = order.status === true;
 
   return `
-    <article
-      class="flex min-h-[174px] w-full items-center gap-3 rounded-[28px] bg-white p-3 shadow-[0_10px_28px_rgba(0,0,0,0.06)]"
-    >
-      <div
-        class="flex h-[112px] w-[112px] shrink-0 items-center justify-center rounded-[22px] bg-[#F1F1F1]"
-      >
-        <img
-          src="${order.image}"
-          alt="${order.title}"
-          class="max-h-[98px] max-w-[98px] object-contain"
-        />
+    <article class="flex min-h-[174px] w-full items-center gap-3 rounded-[28px] bg-white p-3 shadow-[0_10px_28px_rgba(0,0,0,0.06)]">
+      <div class="flex h-[112px] w-[112px] shrink-0 items-center justify-center rounded-[22px] bg-[#F1F1F1]">
+        <img src="${order.image}" alt="${order.title}" class="max-h-[98px] max-w-[98px] object-contain"/>
       </div>
 
       <div class="min-w-0 flex-1">
@@ -33,11 +26,7 @@ function createOrderCard(order) {
         </h2>
 
         <div class="mt-3 flex items-center gap-2 whitespace-nowrap text-[11px] text-[#666666]">
-          <span
-            class="h-3 w-3 shrink-0 rounded-full"
-            style="background-color: ${order.colorCode}"
-          ></span>
-
+          <span class="h-3 w-3 shrink-0 rounded-full" style="background-color: ${order.colorCode}"></span>
           <span>${order.color}</span>
           <span>|</span>
           <span>Size = ${order.size}</span>
@@ -45,9 +34,7 @@ function createOrderCard(order) {
           <span>Qty = ${order.qty}</span>
         </div>
 
-        <span
-          class="mt-3 inline-flex rounded-[8px] bg-[#EEEEEE] px-3 py-[5px] text-[10px] font-semibold text-[#555555]"
-        >
+        <span class="mt-3 inline-flex rounded-[8px] bg-[#EEEEEE] px-3 py-[5px] text-[10px] font-semibold text-[#555555]">
           ${isCompleted ? "Completed" : "In Delivery"}
         </span>
 
@@ -56,10 +43,7 @@ function createOrderCard(order) {
             $${order.price.toFixed(2)}
           </p>
 
-          <button
-            type="button"
-            class="flex h-[36px] shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#111111] px-4 text-[11px] font-bold text-white"
-          >
+          <button class="flex h-[36px] shrink-0 items-center justify-center whitespace-nowrap rounded-full bg-[#111111] px-4 text-[11px] font-bold text-white">
             ${isCompleted ? "View Order" : "Track Order"}
           </button>
         </div>
@@ -75,18 +59,13 @@ function renderOrders() {
   });
 
   if (filteredOrders.length === 0) {
-    const isActiveTab = currentTab === "active";
-
-    ordersContainer.innerHTML = `
-      <div class="flex flex-col items-center px-3 pt-24 text-center">
-        <h2 class="text-[22px] font-bold">No Orders</h2>
-        <p class="mt-3 text-[#666]">
-          ${isActiveTab ? "No active orders" : "No completed orders"}
-        </p>
-      </div>
-    `;
+    ordersContainer.classList.add("hidden");
+    notFoundSection.classList.remove("hidden");
     return;
   }
+
+  notFoundSection.classList.add("hidden");
+  ordersContainer.classList.remove("hidden");
 
   ordersContainer.innerHTML = filteredOrders
     .map((order) => createOrderCard(order))

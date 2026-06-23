@@ -1,7 +1,8 @@
-//ساخت navbar
+// ساخت navbar
 import { navbar } from "../../components/navbar.js";
 document.getElementById("navbar").innerHTML = navbar();
 
+//  DOM
 const searchInput = document.getElementById("searchInput");
 
 const recentSection = document.getElementById("recentSection");
@@ -15,106 +16,47 @@ const resultCount = document.getElementById("resultCount");
 const productsSection = document.getElementById("productsSection");
 const notFoundSection = document.getElementById("notFoundSection");
 
-//   داده موقت محصولات
+//  API
+async function fetchProducts(searchValue) {
+  const res = await fetch(`http://localhost:3000/products`);
 
-//   بعداً با API:
-//   این آرایه باید حذف شود.
+  const data = await res.json();
 
-//   مثال دریافت محصولات از API:
+  const clean = searchValue.trim().toLowerCase();
 
-//   async function getProducts(searchValue) {
-//     const response = await fetch(
-//       `https://your-api.com/products?search=${searchValue}`
-//     );
+  return data.filter((p) => p.title.toLowerCase().includes(clean));
+}
+//  Recent Search (localStorage)
+let recentSearches = JSON.parse(localStorage.getItem("recentSearches")) || [];
 
-//     const data = await response.json();
+function saveRecentSearch(searchValue) {
+  const cleanValue = searchValue.trim();
+  if (!cleanValue) return;
 
-//     return data;
-//   }
-const products = [
-    {
-        id: 1,
-        title: "K-Swiss Running Sneakers",
-        price: 90,
-        rating: 4.5,
-        sold: "8,230 sold",
-        image: "image-shoe-1.png",
-    },
-    {
-        id: 2,
-        title: "Adidas Running Sneakers",
-        price: 105,
-        rating: 4.8,
-        sold: "7,450 sold",
-        image: "image-shoe-2.png",
-    },
-    {
-        id: 3,
-        title: "Adidas Running Shoes",
-        price: 80,
-        rating: 4.5,
-        sold: "5,997 sold",
-        image: "image-shoe-3.png",
-    },
-    {
-        id: 4,
-        title: "RS-X Running Sneakers",
-        price: 135,
-        rating: 4.9,
-        sold: "6,104 sold",
-        image: "image-shoe-4.png",
-    },
-    {
-        id: 5,
-        title: "Nike Air Zoom Running",
-        price: 120,
-        rating: 4.7,
-        sold: "3,480 sold",
-        image: "image-shoe-1.png",
-    },
-    {
-        id: 6,
-        title: "Puma Sport Running Shoes",
-        price: 110,
-        rating: 4.6,
-        sold: "2,980 sold",
-        image: "image-shoe-2.png",
-    },
-];
+  recentSearches = recentSearches.filter(
+    (s) => s.toLowerCase() !== cleanValue.toLowerCase(),
+  );
 
-// سرچ های اخیر
-//   فعلاً از localStorage استفاده شده است.
+  recentSearches.unshift(cleanValue);
+  recentSearches = recentSearches.slice(0, 8);
 
-//   بعداً با API:
-//   اگر API بخش search history داشته باشد،
-//   این اطلاعات باید از API دریافت و حذف شوند.
+  localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
+}
 
-let recentSearches =
-    JSON.parse(localStorage.getItem("recentSearches")) || [
-        "Nike Wmnsphat Classic",
-        "Puma Running Sneakers",
-        "Nike Airforce 1",
-        "Adidas Walking Sneakers",
-        "K-Swiss Court Northam",
-        "Nike Air Jordan XXXVI",
-        "Fila Windshift 15",
-        "Puma Suede Classic",
-    ];
-
-//   نمایش سرچ‌های اخیر
+//  UI: Recent
 function renderRecentSearches() {
-    if (recentSearches.length === 0) {
-        recentList.innerHTML = `
+  if (recentSearches.length === 0) {
+    recentList.innerHTML = `
       <p class="pt-5 text-center text-[12px] text-[#999999]">
         No recent searches
       </p>
     `;
-        return;
-    }
+    return;
+  }
 
-    recentList.innerHTML = recentSearches
-        .map((search) => {
-            return `
+  recentList.innerHTML = recentSearches
+    .map(
+      (search) => `
         <div class="flex items-center justify-between gap-3">
           <button
             type="button"
@@ -127,92 +69,48 @@ function renderRecentSearches() {
           <button
             type="button"
             data-delete-search="${search}"
-            class="delete-search-btn flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#A5A5A5] text-[13px] leading-none text-[#777777]"
-            aria-label="Delete recent search"
+            class="delete-search-btn flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#A5A5A5] text-[13px] text-[#777777]"
           >
             ×
           </button>
         </div>
-      `;
-        })
-        .join("");
+      `,
+    )
+    .join("");
 
-    /*
-      کلیک روی یک سرچ اخیر
-      همان عبارت داخل input قرار می‌گیرد و سرچ انجام می‌شود.
-    */
-    document.querySelectorAll(".recent-search-btn").forEach((button) => {
-        button.addEventListener("click", function () {
-            searchInput.value = this.dataset.recentSearch;
-
-            searchProducts(searchInput.value);
-        });
+  document.querySelectorAll(".recent-search-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      searchInput.value = this.dataset.recentSearch;
+      searchProducts(searchInput.value);
     });
+  });
 
-    /*
-      حذف فقط یک مورد از سرچ‌های اخیر
-    */
-    document.querySelectorAll(".delete-search-btn").forEach((button) => {
-        button.addEventListener("click", function () {
-            const searchToDelete = this.dataset.deleteSearch;
+  document.querySelectorAll(".delete-search-btn").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const value = this.dataset.deleteSearch;
 
-            recentSearches = recentSearches.filter(
-                (search) => search !== searchToDelete
-            );
+      recentSearches = recentSearches.filter((s) => s !== value);
+      localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
 
-            localStorage.setItem(
-                "recentSearches",
-                JSON.stringify(recentSearches)
-            );
-
-            renderRecentSearches();
-        });
+      renderRecentSearches();
     });
+  });
 }
 
-//   ذخیره عبارت سرچ شده
-
-//   فعلاً localStorage
-
-//   بعداً با API:
-//   این بخش باید به API ارسال شود.
-function saveRecentSearch(searchValue) {
-    const cleanValue = searchValue.trim();
-
-    if (!cleanValue) return;
-
-    recentSearches = recentSearches.filter(
-        (search) => search.toLowerCase() !== cleanValue.toLowerCase()
-    );
-
-    recentSearches.unshift(cleanValue);
-
-    /*
-      فقط 8 مورد آخر نگه داشته می‌شود
-    */
-    recentSearches = recentSearches.slice(0, 8);
-
-    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
-}
-
-//   ساخت کارت محصول
+//  Product Card
 function createProductCard(product) {
-    return `
+  return `
     <article class="min-w-0">
-      <div
-        class="relative flex h-[150px] items-center justify-center rounded-[13px] bg-[#F3F3F3]"
-      >
+      <div class="relative flex h-[150px] items-center justify-center rounded-[13px] bg-[#F3F3F3]">
         <img
           src="${product.image}"
           alt="${product.title}"
           class="max-h-[125px] max-w-[125px] object-contain"
         />
 
-        <!-- دکمه favorite موقت -->
         <button
           type="button"
-          class="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#222222] text-[13px] text-white"
-          aria-label="Add to favorite"
+          class="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[#222222] text-white"
         >
           ♡
         </button>
@@ -229,142 +127,96 @@ function createProductCard(product) {
         <span>${product.sold}</span>
       </div>
 
-      <p class="mt-1 text-[14px] font-extrabold">$${product.price.toFixed(
-        2
-    )}</p>
+      <p class="mt-1 text-[14px] font-extrabold">
+        $${Number(product.price).toFixed(2)}
+      </p>
     </article>
   `;
 }
 
-//   نمایش محصولات پیدا شده
-function renderProducts(foundProducts, searchValue) {
-    resultText.textContent = `Results for "${searchValue}"`;
-
-    /*
-      فعلاً تعداد از آرایه محصولات گرفته می‌شود.
-  
-      بعداً با API:
-      اگر API تعداد کل نتایج را برگرداند،
-      از مقدار total استفاده کن.
-    */
-    resultCount.textContent = `${foundProducts.length} founds`;
-
-    productsSection.innerHTML = foundProducts
-        .map((product) => createProductCard(product))
-        .join("");
-
-    productsSection.classList.remove("hidden");
-    resultHeader.classList.remove("hidden");
-
-    recentSection.classList.add("hidden");
-    notFoundSection.classList.add("hidden");
-}
-
-//   نمایش حالت Not Found
-function showNotFound() {
-    recentSection.classList.add("hidden");
-    resultHeader.classList.add("hidden");
-    productsSection.classList.add("hidden");
-
-    notFoundSection.classList.remove("hidden");
-}
-
-//   نمایش حالت Recent
+//  UI States
 function showRecent() {
-    recentSection.classList.remove("hidden");
+  recentSection.classList.remove("hidden");
+  resultHeader.classList.add("hidden");
+  productsSection.classList.add("hidden");
+  notFoundSection.classList.add("hidden");
 
-    resultHeader.classList.add("hidden");
-    productsSection.classList.add("hidden");
-    notFoundSection.classList.add("hidden");
-
-    renderRecentSearches();
+  renderRecentSearches();
 }
 
-//   سرچ محصول
+function showNotFound() {
+  recentSection.classList.add("hidden");
+  resultHeader.classList.add("hidden");
+  productsSection.classList.add("hidden");
+  notFoundSection.classList.remove("hidden");
+}
 
-//   فعلاً سرچ از آرایه products انجام می‌شود.
+function renderProducts(products, searchValue) {
+  resultText.textContent = `Results for "${searchValue}"`;
+  resultCount.textContent = `${products.length} found`;
 
-//   بعداً با API:
-//   کل این بخش باید با fetch جایگزین شود.
+  productsSection.innerHTML = products
+    .map((p) => createProductCard(p))
+    .join("");
 
-//   نمونه:
+  recentSection.classList.add("hidden");
+  notFoundSection.classList.add("hidden");
+  resultHeader.classList.remove("hidden");
+  productsSection.classList.remove("hidden");
+}
 
-//   async function searchProducts(searchValue) {
-//     const response = await fetch(
-//       `https://your-api.com/products?search=${searchValue}`
-//     );
+//  Search (API)
+async function searchProducts(searchValue) {
+  const cleanValue = searchValue.trim();
 
-//     const data = await response.json();
+  if (!cleanValue) {
+    showRecent();
+    return;
+  }
 
-//     if (data.length === 0) {
-//       showNotFound();
-//       return;
-//     }
+  try {
+    const data = await fetchProducts(cleanValue);
 
-//     renderProducts(data, searchValue);
-//   }
-function searchProducts(searchValue) {
-    const cleanValue = searchValue.trim();
-
-    /*
-      اگر input خالی باشد حالت Recent نمایش داده می‌شود
-    */
-    if (!cleanValue) {
-        showRecent();
-        return;
-    }
-
-    const foundProducts = products.filter((product) =>
-        product.title.toLowerCase().includes(cleanValue.toLowerCase())
-    );
-
-    /*
-      ذخیره عبارت سرچ شده در recent searches
-    */
     saveRecentSearch(cleanValue);
 
-    /*
-      اگر محصول پیدا نشود حالت Not Found
-    */
-    if (foundProducts.length === 0) {
-        showNotFound();
-        return;
+    if (!data || data.length === 0) {
+      showNotFound();
+      return;
     }
 
-    /*
-      اگر محصول پیدا شود حالت Results
-    */
-    renderProducts(foundProducts, cleanValue);
+    renderProducts(data, cleanValue);
+  } catch (err) {
+    console.error(err);
+    showNotFound();
+  }
 }
 
-//   Event سرچ هنگام تایپ
+//  Debounce
+function debounce(fn, delay = 400) {
+  let timer;
 
-//   بعداً با API:
-//   بهتر است debounce اضافه شود
-//   تا با هر حرف درخواست API ارسال نشود.
-// 
-searchInput.addEventListener("input", function () {
+  return function (...args) {
+    clearTimeout(timer);
+
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+//  Events
+searchInput.addEventListener(
+  "input",
+  debounce(function () {
     searchProducts(this.value);
-});
+  }, 400),
+);
 
-//   پاک کردن همه سرچ‌های اخیر
 clearAllButton.addEventListener("click", function () {
-    recentSearches = [];
-
-    /*
-      فعلاً پاک کردن localStorage
-  
-      بعداً با API:
-      درخواست DELETE برای پاک کردن history ارسال شود.
-    */
-    localStorage.setItem("recentSearches", JSON.stringify(recentSearches));
-
-    renderRecentSearches();
+  recentSearches = [];
+  localStorage.setItem("recentSearches", JSON.stringify([]));
+  renderRecentSearches();
 });
 
-/*
-  شروع صفحه:
-  چون input در ابتدا خالی است،
-  حالت Recent نمایش داده می‌شود.
-*/
+//  Init
 showRecent();
