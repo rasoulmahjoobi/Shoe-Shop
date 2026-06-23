@@ -8,15 +8,15 @@ export const navbar = () => {
   const isOrders = currentPath.includes("order.html");
 
   window.goToHome = () => {
-    window.location.href = "../../3-home/home/home.html";
+    window.location.href="/Web/src/3-home/home/home.html";
   };
 
   window.goToCart = () => {
-    window.location.href = "../../4-cart/cart-product.html";
+    window.location.href = "/Web/src/4-cart/cart-product.html";
   };
 
   window.goToOrders = () => {
-    window.location.href = "../../6-order/order.html";
+    window.location.href = "/Web/src/6-order/order.html";
   };
 
   return `

@@ -1,4 +1,7 @@
-  //  Shipping Address
+ import { navbar } from "../components/navbar.js";
+document.getElementById("navbar").innerHTML = navbar();
+
+ //  Shipping Address
 const savedAddress = JSON.parse(localStorage.getItem("selectedAddress"));
 
 const selectedAddressName = document.getElementById("selectedAddressName");
