@@ -68,85 +68,10 @@
     </header>
 
     <!-- Products -->
-    <main class="h-[calc(100vh-300px)] overflow-y-auto pb-8">
-      <div
-        class="cart-item flex items-center justify-between bg-[#F7F7F7] rounded-[20px] p-3 mx-4 mt-8 shadow-[0_8px_25px_rgba(0,0,0,0.08)]"
-      >
-        <!-- Product Image -->
-        <div
-          class="flex items-center justify-center w-24 h-24 bg-[#EFEFEF] rounded-[16px] shrink-0"
-        >
-          <img
-            src="../../assets/images/image-home/image-shoe-4.png"
-            alt="shoe"
-            class="w-20 h-auto object-contain"
-          />
-        </div>
-
-        <!-- Product Info -->
-        <div class="flex flex-col flex-1 mx-3 min-w-0">
-          <h2 class="text-base font-semibold text-gray-900 whitespace-nowrap">
-            Air Jordan 3 Retro
-          </h2>
-
-          <div class="flex items-center gap-1.5 mt-2 whitespace-nowrap">
-            <div class="w-3 h-3 bg-black rounded-full shrink-0"></div>
-            <span class="text-xs text-gray-500">Black</span>
-            <span class="text-xs text-gray-400">|</span>
-            <span class="text-xs text-gray-500">Size = 42</span>
-          </div>
-
-          <div class="flex items-center justify-between mt-4">
-            <span class="text-xl font-semibold">$105.00</span>
-
-            <div
-              class="flex items-center gap-3 bg-[#EFEFEF] px-3 py-2 rounded-full"
-            >
-              <button
-                class="quantity-minus text-base leading-none"
-                type="button"
-              >
-                −
-              </button>
-
-              <span class="quantity-value text-sm font-medium">1</span>
-
-              <button
-                class="quantity-plus text-base leading-none"
-                type="button"
-              >
-                +
-              </button>
-            </div>
-
-            <button
-              class="self-start mt-1 shrink-0"
-              data-remove-btn
-              data-name="Air Jordan 3 Retro"
-              data-info="Black | Size = 42"
-              data-price="$105.00"
-              data-image="../../assets/images/image-home/image-shoe-4.png"
-              data-quantity="1"
-              type="button"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M3 6h18" />
-                <path d="M8 6V4h8v2" />
-                <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </main>
+    <main
+      id="cart-list"
+      class="h-[calc(100vh-300px)] overflow-y-auto pb-8"
+    ></main>
 
     <!-- Total -->
     <div
@@ -184,7 +109,7 @@
     <!-- Remove Modal -->
     <div
       id="removeModal"
-      class="fixed inset-0 z-50 hidden items-end justify-center bg-black/60"
+      class="fixed mb-16 inset-0 z-50 hidden items-end justify-center bg-black/60"
     >
       <div
         id="modalContent"
@@ -197,6 +122,46 @@
         >
           Remove From Cart?
         </h2>
+
+        <div
+          class="my-4 flex items-center gap-3 rounded-[22px] bg-white p-3 shadow-md"
+        >
+          <div
+            class="flex h-20 w-20 items-center justify-center rounded-2xl bg-gray-100"
+          >
+            <img
+              id="modalProductImage"
+              src=""
+              alt="product"
+              class="h-16 w-16 object-contain"
+            />
+          </div>
+
+          <div class="flex-1">
+            <h3 id="modalProductName" class="text-sm font-bold text-gray-800">
+              Product Name
+            </h3>
+
+            <p id="modalProductInfo" class="mt-1 text-[10px] text-gray-400">
+              Color | Size
+            </p>
+
+            <p
+              id="modalProductPrice"
+              class="mt-2 text-sm font-bold text-gray-800"
+            >
+              $0.00
+            </p>
+          </div>
+
+          <div
+            id="modalProductQuantity"
+            class="rounded-full bg-gray-100 px-3 py-1 text-xs text-gray-700"
+          >
+            - 1 +
+          </div>
+        </div>
+
 
         <div
           class="my-4 flex items-center gap-3 rounded-[22px] bg-white p-3 shadow-md"
@@ -257,6 +222,10 @@
       </div>
     </div>
 
-    <script src="cart-product.js"></script>
+    <!-- nav-bar -->
+    <!-- توسط js اضافه میشود -->
+    <div id="navbar"></div>
+
+    <script type="module" src="cart-product.js"></script>
   </body>
 </html>

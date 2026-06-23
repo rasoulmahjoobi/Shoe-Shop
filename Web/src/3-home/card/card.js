@@ -231,3 +231,48 @@ favoriteBtn.addEventListener("click", () => {
     alert("Added to Wishlist ❤️");
   }
 });
+
+// ====== مدیریت Cart ======
+addToCartBtn.addEventListener("click", () => {
+  if (!selectedSize) {
+    alert("Please select a size");
+    return;
+  }
+
+  if (!selectedColor) {
+    alert("Please select a color");
+    return;
+  }
+
+  if (quantity === 0) {
+    alert("Please select quantity");
+    return;
+  }
+
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  const existingProduct = cart.find(
+    (item) =>
+      item.id === currentProduct.id &&
+      item.size === selectedSize &&
+      item.color === selectedColor
+  );
+
+  if (existingProduct) {
+    existingProduct.quantity += quantity;
+  } else {
+    cart.push({
+      id: currentProduct.id,
+      title: currentProduct.title,
+      image: currentProduct.image,
+      price: currentProduct.price,
+      size: selectedSize,
+      color: selectedColor,
+      quantity: quantity,
+    });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+
+  alert("Added To Cart 🛒");
+});
